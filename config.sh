@@ -20,7 +20,14 @@ function usage() {
 
 DOTFILES_DIR=${DOTFILES_DIR=~/dotfiles}
 DOTFILES="$(find ${DOTFILES_DIR} -maxdepth 1 \
-    \( -iname "*.*" -a ! \( -iname ".git*" -type d \) -a ! -iname "*config.sh*" \) \
+    \( -iname "*.*" \
+    -a ! \( -iname ".git" -type d \) \
+    -a ! \( -iname "bck" -type d \)\
+    -a ! -iname "config.sh" \
+    -a ! -iname "README.md" \
+    -a ! -iname "LICENSE" \
+    -a ! -iname ".gitignore" \
+    -a ! -iname ".gitmodules" \) \
     2> /dev/null)"
 
 while getopts ":d:ih" optname; do

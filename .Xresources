@@ -1,0 +1,100 @@
+! Reload with "xrdb -load ~/.Xdefaults"
+
+! --------------------
+! XTerm Global Options
+! --------------------
+
+XTerm*FaceName: andale mono
+! XTerm*FaceName: droid
+XTerm*FaceSize: 15
+XTerm*renderFont: true
+
+XTerm*background: black
+XTerm*foreground: green
+XTerm*highlightColor: red
+! XTerm*highlightColor: blue
+
+XTerm*colorBDMode: true
+XTerm*colorBD: white
+XTerm*colorULMode: true
+XTerm*colorUL: cyan
+
+XTerm*pointerColor: black
+XTerm*pointerColorBackground: white
+XTerm*cursorColor: white
+
+XTerm*saveLines: 10000
+
+! --------------------
+! URxvt Global Options
+! --------------------
+
+! General
+URxvt*termName: rxvt-256color
+URxvt*loginShell: true
+URxvt*scrollBar: false
+URxvt*secondaryScroll: true
+URxvt*saveLines: 65535
+URxvt*cursorBlink: true
+URxvt*urgentOnBell: true
+!URxvt*override-redirect:false
+!URxvt*borderLess:       false
+!URxvt*internalBorder:       0
+!URxvt*externalBorder:       0
+
+! Font config
+URxvt*font: xft:andale mono:antialias=true:size=14
+URxvt*boldFont: xft:andale mono:antialias=true:bold:size=14
+URxvt*italicFont: xft:andale mono:antialias=true:italic:size=14
+URxvt*boldItalicFont: xft:andale mono:antialias=true:bold:italic:size=14
+
+!URxvt*font: xft:andale mono:antialias=true:autohint=true:size=15
+!URxvt*boldFont: xft:andale mono:antialias=true:autohint=true:bold:size=15
+!URxvt*italicFont: xft:andale mono:antialias=true:autohint=true:italic:size=15
+!URxvt*boldItalicFont: xft:andale mono:antialias=true:autohint=true:italic:bold:size=15
+
+! Set the style of the scrollbar: rxvt (default), plain, next, xterm
+URxvt*scrollstyle: rxvt
+
+! The string will be interpreted as if typed into the shell as-is.
+! In this example, printing will be disabled altogether.
+URxvt.print-pipe: "cat > /dev/null"
+
+! Set cursor color
+URxvt*cursorColor: #DCDCCC
+
+! Set pseudo transparency
+!URxvt*shading:    50
+!URxvt*transparent:true
+
+! Set others feature
+!URxvt*perl-ext: matcher
+URxvt*urlLauncher: firefox-bin
+
+! Set default color
+URxvt*foreground: Green
+URxvt*background: Black
+
+! Set colored man pages
+URxvt.colorIT: Green
+URxvt.colorBD: White
+URxvt.colorUL: Cyan
+
+! Color info
+! color0  (black)          = Black
+! color1  (red)            = Red3
+! color2  (green)          = Green3
+! color3  (yellow)         = Yellow3
+! color4  (blue)           = Blue3
+! color5  (magenta)        = Magenta3
+! color6  (cyan)           = Cyan3
+! color7  (white)          = AntiqueWhite
+! color8  (bright black)   = Grey25
+! color9  (bright red)     = Red
+! color10 (bright green)   = Green
+! color11 (bright yellow)  = Yellow
+! color12 (bright blue)    = Blue
+! color13 (bright magenta) = Magenta
+! color14 (bright cyan)    = Cyan
+! color15 (bright white)   = White
+ 

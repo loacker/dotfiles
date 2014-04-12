@@ -1,0 +1,15 @@
+[submodule "tasklist"]
+	path = .vim/bundle/tasklist
+	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "easybuffer"]
+	path = .vim/bundle/easybuffer
+	url = https://github.com/vim-scripts/easybuffer.vim.git
+[submodule "taglist"]
+	path = .vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "minibufexpl"]
+	path = .vim/bundle/minibufexpl
+	url = https://github.com/vim-scripts/minibufexpl.vim
+[submodule "nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/vim-scripts/The-NERD-tree.git

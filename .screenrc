@@ -1,0 +1,105 @@
+# .screenrc configuration file
+
+# Don't show the startup message
+startup_message off
+
+# Set visual bell off
+vbell off
+
+# Alternate escape sequence from CTRL+A A 
+#escape a
+#escape o
+
+# Let VIM to clean the video
+altscreen on
+
+# TBU
+#autodetach on
+
+# Disable +s 
+defnonblock on
+
+# Copy mode scrollback buffer setup
+defscrollback 50000
+
+# Message timeout (in second)
+msgwait 2
+
+# Activity flash bar
+activity "activity in %n (%t) [%w:%s]~"
+
+# Run everything in UTF-8.
+defutf8 on
+
+# Turn off flow control
+#defflow off
+
+# Set default terminal
+term xterm
+termcapinfo xterm ti@:te@
+
+# Start login shell (Read .bash_profile)
+#shell $SHELL
+
+# Bind  + shift + <NUM> for other tab
+bind -c selectHighs 1 select 10
+#bind £ select 11
+#bindkey -k <F11> prev
+#bindkey -k <F12> next
+#bindkey -k k1 select 1
+
+# Window numbering starts at 1, not 0.
+#bind c screen 1
+#bind 0 select 10
+
+# Bind +a "space" for windows list
+#bind ' ' windowlist -b 
+
+# Default tab title
+shelltitle "$ |bash"
+# Create some default windows on start
+# -t for the label
+# following by the number assigned to a windows
+# and by the commands to exec (default to shell)
+screen -t lcl-root 0 su -
+screen -t lcl1 1
+screen -t lcl2 2
+screen -t syslog 9 tail -f /var/log/messages
+# Select the the number 1 window
+select 1
+# Split the 1th and 2th windows
+split
+select 1
+focus
+select 9
+resize -14
+focus
+
+# ACL examples
+#multiuser on
+#acladd <username>
+#aclchg joeuser +rx "#?"  # ro, all windows, execute all commands
+#aclchg joeuser -x "#,at,aclchg,acladd,acldel,quit" # except these commands in all windows
+#acladd betty
+#aclchg betty +rwx "#?" # enable r/w access
+#aclchg betty -x "#,at,aclchg,acladd,acldel,quit"
+#source .screenrc
+
+# Window list at the bottom of the screen
+# caption show the info on all tab region
+# hardstatus string show the info on an xterm title
+# hardstatus alwayslastline  show the info at the bottom of the screen 
+
+#caption always "%n(%t) : %C"
+caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
+
+#hardstatus on
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}%-Lw%{= kW}%70> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+hardstatus alwayslastline "%{=b YR}%50> %{=b YR}%-w%{=b kR}[%n %t]%{-}%+w %< %>%=%{=B YR}[%u]%<"
+
+# Test
+#hardstatus off
+#hardstatus string "screen %n (%t)%? [%h]%?"
+#caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f*%t%{-}%+Lw%-0<"
+

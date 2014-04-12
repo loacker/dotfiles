@@ -1,0 +1,25 @@
+[user]
+    email = matteo@ninux.org
+    name = matteo [l0aCk3r]
+[core]
+    editor = vim
+    pager = cat
+[merge]
+    tool = vimdiff
+[color]
+    ui = true
+    status = true
+[format]
+    #pretty = '%Cred%h%Creset - %C(yellow)%ad%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    pretty = %C(bold red)%h %C(bold yellow)%d %C(bold green)%ad %C(bold white)'%s' %C(bold green)(%cr) %C(bold blue)<%an>
+[log]
+    date = short
+    decorate = long
+    abbrevCommit = true
+[alias]
+    glog = log --graph --all --pretty=oneline --decorate
+
+[credential]
+    helper = cache
+[push]
+    default = current

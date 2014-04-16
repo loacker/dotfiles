@@ -30,10 +30,11 @@ DOTFILES="$(find ${DOTFILES_DIR} -maxdepth 1 \
     -a ! -iname ".gitmodules" \) \
     2> /dev/null)"
 
-while getopts ":d:ih" optname; do
-    case "$optname" in
-        "d") DOTFILES_DIR=$OPTARG ;; 
+while getopts ":d:iph" optname; do
+    case "${optname}" in
+        "d") DOTFILES_DIR=${OPTARG} ;; 
         "i") INTERACTIVE=true ;; 
+        "p") PULL=true ;; 
         "?"|"h"|":") usage
             exit 2;;
     esac
@@ -51,27 +52,44 @@ print_status(){
 
 create_link() {
     echo -n "Create a symbolic link for the file $(basename $f): "
-    ln -s $f ~/$(basename $f) > /dev/null 2>&1
+    ln -s $(basename ${DOTFILES_DIR})/${FILENAME} ../${FILENAME} > /dev/null 2>&1
     print_status
 }
 
 make_bck() {
     echo -n "$(basename $f) is a file, make a backup: "
     [[ ! -d ${DOTFILES_DIR}/bck ]] && mkdir ${DOTFILES_DIR}/bck -p
-    mv ~/${filename} ${DOTFILES_DIR}/bck/${filename}_$(date +%d%m%Y_%H%M) > /dev/null 2>&1
+    mv ~/${FILENAME} ${DOTFILES_DIR}/bck/${FILENAME}_$(date +%d%m%Y_%H%M) > /dev/null 2>&1
     print_status
 }
 
-if [ ${INTERACTIVE} ];then
-    for f in $DOTFILES; do
+pull_submodule() {
+    if [ -f "${DOTFILES_DIR}/.gitmodules" ];then
+        echo -n "Seems like are present some submodules, would you like to pull"
+        echo -n "(yes/no): "
+        read INPUT
+        if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
+            git config alias.pullall '!f(){ git pull "$@" && git submodule update --init --recursive; }; f'
+            git pullall
+        elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
+            return
+        else
+            echo "Answer yes/YES or no/NO"
+        fi
+    fi
+}
+
+interactive () {
+    for f in ${DOTFILES}; do
         while true; do 
-            echo -n "Would you like to create symlink for the "$f" file? "
+            echo -n "Would you like to create symlink for the "${f}" file? "
             echo -n "(yes/no): "
             read INPUT
-            if [ "$INPUT" == "yes" -o "$INPUT" == "YES" ];then
+            if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
+                make_bck
                 create_link
                 break
-            elif [ "$INPUT" == "no" -o "$INPUT" == "NO" ];then
+            elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
                 break
                 continue
             else
@@ -79,19 +97,28 @@ if [ ${INTERACTIVE} ];then
             fi
         done
     done
+}
+
+
+
+if [ ${INTERACTIVE} ];then
+    interactive
+    pull_submodule
+elif [ ${PULL} ];then
+    pull_submodule
 else
-    for f in $DOTFILES; do
-        filename=$(basename $f)
-        if [ -h ~/${filename} ];then 
-            echo "The symbolic link exist for the file ${filename}"
-        elif [ -f ~/${filename} ];then
+    for f in ${DOTFILES}; do
+        FILENAME=$(basename $f)
+        if [ -h ~/${FILENAME} ];then 
+            echo "The symbolic link exist for the file ${FILENAME}"
+        elif [ -f ~/${FILENAME} ];then
             make_bck
             create_link
         else
             create_link
         fi
     done
-
+    pull_submodule
 fi
 
 # vim:ts=8:sts=4:sw=4:tw=79:et:ai

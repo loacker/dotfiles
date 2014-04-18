@@ -30,7 +30,8 @@ XTerm*saveLines: 10000
 ! --------------------
 
 ! General
-URxvt*termName: rxvt-256color
+!URxvt*termName: rxvt-256color
+URxvt*termName: xterm
 URxvt*loginShell: true
 URxvt*scrollBar: false
 URxvt*secondaryScroll: true

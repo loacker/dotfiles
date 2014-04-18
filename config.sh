@@ -69,8 +69,9 @@ pull_submodule() {
         echo -n "(yes/no): "
         read INPUT
         if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
+            cd ${DOTFILES_DIR} && \
             git config alias.pullall '!f(){ git pull "$@" && git submodule update --init --recursive; }; f'
-            git pullall
+            cd ${DOTFILES_DIR} && git pullall
         elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
             return
         else

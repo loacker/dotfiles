@@ -35,7 +35,7 @@ set pastetoggle=<F12>
 " Set Comment color
 " -----------------
 "set background=dark
-highlight Comment ctermfg=grey
+"highlight Comment ctermfg=grey
 
 " Cursor position on status line
 " ------------------------------

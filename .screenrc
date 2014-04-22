@@ -64,16 +64,16 @@ shelltitle "$ |bash"
 screen -t lcl-root 0 su -
 screen -t lcl1 1
 screen -t lcl2 2
-screen -t syslog 9 tail -f /var/log/messages
+#screen -t syslog 9 tail -f /var/log/messages
 # Select the the number 1 window
-select 1
+#select 1
 # Split the 1th and 2th windows
-split
-select 1
-focus
-select 9
-resize -14
-focus
+#split
+#select 1
+#focus
+#select 9
+#resize -14
+#focus
 
 # ACL examples
 #multiuser on
@@ -96,7 +96,8 @@ caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
 #hardstatus on
 #hardstatus alwayslastline
 #hardstatus string '%{= kG}%-Lw%{= kW}%70> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
-hardstatus alwayslastline "%{=b YR}%50> %{=b YR}%-w%{=b kR}[%n %t]%{-}%+w %< %>%=%{=B YR}[%u]%<"
+#hardstatus alwayslastline "%{=b YR}%50> %{=b YR}%-w%{=b kR}[%n %t]%{-}%+w %< %>%=%{=B YR}[%u]%<"
+hardstatus alwayslastline "%{=b RW}%50> %{=b RW}%-w%{=b kW}[%n %t]%{-}%+w %< %>%=%{=B RW}[%u]%<"
 
 # Test
 #hardstatus off

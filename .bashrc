@@ -84,10 +84,8 @@ C_WHITE='\033[1;37m'
 # with the equivalent octal code \001 and \002, the octal code \033 can be substituted by '\e'.
 # If you don't escape the prompt break the newline like inserting a carriage return 
 
-#PS1='\[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;31m\]\h\[\033[01;37m\]:\[\033[01;36m\]\w\[\033[01;33m\] \$\[\033[00m\] '
-
-PS1='\[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;31m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;33m\] \$\[\e[0m\] '
-#PS1="\[${C_LIGHTGREEN}\]\u\[${C_WHITE}\]@\[${C_LIGHTRED}\]\h\[${C_WHITE}\]:\[${C_LIGHTCYAN}\]\w\[${C_YELLOW}\] \[\$${C_DEFAULT}\] "
+#PS1='\[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;31m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;33m\] \$\[\e[0m\] '
+PS1="\[${C_LIGHTGREEN}\]\u\[${C_WHITE}\]@\[${C_LIGHTRED}\]\h\[${C_WHITE}\]:\[${C_LIGHTCYAN}\]\w\[${C_YELLOW}\] \$\[${C_DEFAULT}\] "
 
 # Extend PS1 with colorful/dynamic git branch
 RST="\033[00m"

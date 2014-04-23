@@ -57,7 +57,7 @@ create_link() {
 }
 
 make_bck() {
-    echo -n "$(basename $f) is a file, make a backup: "
+    echo -n "${FILENAME} is a file, make a backup: "
     [[ ! -d ${DOTFILES_DIR}/bck ]] && mkdir ${DOTFILES_DIR}/bck -p
     mv ~/${FILENAME} ${DOTFILES_DIR}/bck/${FILENAME}_$(date +%d%m%Y_%H%M) > /dev/null 2>&1
     print_status
@@ -80,6 +80,17 @@ pull_submodule() {
     fi
 }
 
+check_and_create() {
+    if [ -h ~/${FILENAME} ];then 
+        echo "The symbolic link exist for the file ${FILENAME}"
+    elif [ -f ~/${FILENAME} ];then
+        make_bck
+        create_link
+    else
+        create_link
+    fi
+}
+
 interactive () {
     for f in ${DOTFILES}; do
         FILENAME=$(basename $f)
@@ -88,8 +99,7 @@ interactive () {
             echo -n "(yes/no): "
             read INPUT
             if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
-                make_bck
-                create_link
+                check_and_create
                 break
             elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
                 break
@@ -109,14 +119,7 @@ elif [ ${PULL} ];then
 else
     for f in ${DOTFILES}; do
         FILENAME=$(basename $f)
-        if [ -h ~/${FILENAME} ];then 
-            echo "The symbolic link exist for the file ${FILENAME}"
-        elif [ -f ~/${FILENAME} ];then
-            make_bck
-            create_link
-        else
-            create_link
-        fi
+        check_and_create
     done
     pull_submodule
 fi

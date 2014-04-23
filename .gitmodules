@@ -13,3 +13,6 @@
 [submodule "nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/vim-scripts/The-NERD-tree.git
+[submodule "flake8-vim"]
+	path = .vim/bundle/flake8-vim
+	url = https://github.com/vim-scripts/Flake8-vim.git

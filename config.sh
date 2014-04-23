@@ -82,6 +82,7 @@ pull_submodule() {
 
 interactive () {
     for f in ${DOTFILES}; do
+        FILENAME=$(basename $f)
         while true; do 
             echo -n "Would you like to create symlink for the "${f}" file? "
             echo -n "(yes/no): "
@@ -99,8 +100,6 @@ interactive () {
         done
     done
 }
-
-
 
 if [ ${INTERACTIVE} ];then
     interactive

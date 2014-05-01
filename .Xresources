@@ -4,24 +4,25 @@
 ! XTerm Global Options
 ! --------------------
 
+XTerm*termName: xterm-256color
 XTerm*FaceName: andale mono
 ! XTerm*FaceName: droid
 XTerm*FaceSize: 15
 XTerm*renderFont: true
 
-XTerm*background: black
-XTerm*foreground: green
-XTerm*highlightColor: red
-! XTerm*highlightColor: blue
+!XTerm*background: black
+!XTerm*foreground: green
+!XTerm*highlightColor: red
+!XTerm*highlightColor: blue
 
-XTerm*colorBDMode: true
-XTerm*colorBD: white
-XTerm*colorULMode: true
-XTerm*colorUL: cyan
+!XTerm*colorBDMode: true
+!XTerm*colorBD: white
+!XTerm*colorULMode: true
+!XTerm*colorUL: cyan
 
-XTerm*pointerColor: black
-XTerm*pointerColorBackground: white
-XTerm*cursorColor: white
+!XTerm*pointerColor: black
+!XTerm*pointerColorBackground: white
+!XTerm*cursorColor: white
 
 XTerm*saveLines: 10000
 
@@ -31,7 +32,7 @@ XTerm*saveLines: 10000
 
 ! General
 !URxvt*termName: rxvt-256color
-URxvt*termName: xterm
+URxvt*termName: rxvt-unicode-256color
 URxvt*loginShell: true
 URxvt*scrollBar: false
 URxvt*secondaryScroll: true
@@ -59,7 +60,7 @@ URxvt*scrollstyle: rxvt
 URxvt.print-pipe: "cat > /dev/null"
 
 ! Set cursor color
-URxvt*cursorColor: #DCDCCC
+!URxvt*cursorColor: #DCDCCC
 
 ! Set pseudo transparency
 !URxvt*shading:    50
@@ -70,13 +71,16 @@ URxvt*cursorColor: #DCDCCC
 URxvt*urlLauncher: firefox-bin
 
 ! Set default color
-URxvt*foreground: Green
-URxvt*background: Black
+!URxvt*foreground: Green
+!URxvt*background: Black
 
 ! Set colored man pages
-URxvt.colorIT: Green
-URxvt.colorBD: White
+URxvt.colorIT: Red
+URxvt.colorBD: AntiqueWhite
 URxvt.colorUL: Cyan
+
+! Config for solarized color scheme
+URxvt.intensityStyles: false
 
 ! Color info
 ! color0  (black)          = Black
@@ -122,6 +126,7 @@ URxvt.colorUL: Cyan
 ! green     #859900  2/2 green      64 #5f8700 60 -20  65 133 153   0  68 100 60
 
 ! Common
+
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
 #define S_red           #dc322f
@@ -131,7 +136,9 @@ URxvt.colorUL: Cyan
 #define S_cyan          #2aa198
 #define S_green         #859900
 
+
 ! Dark
+
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
@@ -141,7 +148,9 @@ URxvt.colorUL: Cyan
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
+
 ! Light
+
 ! #define S_base03        #fdf6e3
 ! #define S_base02        #eee8d5
 ! #define S_base01        #93a1a1
@@ -150,6 +159,7 @@ URxvt.colorUL: Cyan
 ! #define S_base1         #586e75
 ! #define S_base2         #073642
 ! #define S_base3         #002b36
+
 
 ! To only apply colors to your terminal, for example, prefix
 ! the color assignment statement with its name. Example:
@@ -175,8 +185,7 @@ URxvt.colorUL: Cyan
 *color9:                  S_orange
 *color8:                  S_base03
 *color10:                 S_base01
-!*color11:                 S_base00
-*color11:                 S_yellow
+*color11:                 S_base00
 *color12:                 S_base0
 *color13:                 S_violet
 *color14:                 S_base1

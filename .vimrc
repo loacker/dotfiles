@@ -32,9 +32,13 @@ set pastetoggle=<F12>
 " -----------------------
 :syntax on
 
-" Set Comment color
+" Set backgroud color
 " -----------------
 "set background=dark
+set background=light
+
+" Set Comment color
+" -----------------
 "highlight Comment ctermfg=grey
 
 " Cursor position on status line

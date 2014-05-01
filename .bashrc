@@ -57,14 +57,17 @@ alias fgrep='fgrep --colour=always'
 alias virls='virsh list --all'
 alias down='sudo shutdown -h now'
 
-# Color escape sequence
+# Set dircolors
+eval `dircolors .dircolors`
 
+# Color escape sequence
 C_DEFAULT='\033[0m'
 C_BLACK='\033[0;30m'
 C_GRAY='\033[1;30m'
 C_RED='\033[0;31m'
 C_LIGHTRED='\033[1;31m'
 C_GREEN='\033[0;32m'
+#C_LIGHTGREEN='\033[1;32m'
 C_LIGHTGREEN='\033[1;32m'
 C_BROWN='\033[0;33m'
 C_YELLOW='\033[1;33m'

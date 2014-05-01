@@ -6,7 +6,6 @@
 
 XTerm*termName: xterm-256color
 XTerm*FaceName: andale mono
-! XTerm*FaceName: droid
 XTerm*FaceSize: 15
 XTerm*renderFont: true
 
@@ -67,17 +66,17 @@ URxvt.print-pipe: "cat > /dev/null"
 !URxvt*transparent:true
 
 ! Set others feature
-!URxvt*perl-ext: matcher
+URxvt*perl-ext: matcher
 URxvt*urlLauncher: firefox-bin
 
 ! Set default color
-!URxvt*foreground: Green
-!URxvt*background: Black
+URxvt*foreground: Green
+URxvt*background: Black
 
 ! Set colored man pages
-URxvt.colorIT: Red
+URxvt.colorIT: Yellow3
 URxvt.colorBD: AntiqueWhite
-URxvt.colorUL: Cyan
+URxvt.colorUL: Red
 
 ! Config for solarized color scheme
 URxvt.intensityStyles: false

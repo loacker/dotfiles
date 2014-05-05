@@ -15,7 +15,7 @@ if [[ $- != *i* ]] ; then
 fi
 
 # User specific PATH variables
-export PATH=$PATH:~/bin:~/bin/calibre:~/.gem/ruby/1.8/bin
+export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/1.8/bin
 
 # LIBVIRT Default URI
 export LIBVIRT_DEFAULT_URI=qemu:///system
@@ -119,7 +119,7 @@ _git_ps1 () {
 # Virtualenvwrapper config
 export WORKON_HOME=~/.virtualenvs
 export PROJECT_HOME=~/projects
-source /usr/bin/virtualenvwrapper.sh
-#export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
-#source /usr/bin/virtualenvwrapper_lazy.sh
+source `which virtualenvwrapper.sh`
+#export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
+#source `which virtualenvwrapper_lazy.sh`
 

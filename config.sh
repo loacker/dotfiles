@@ -29,6 +29,7 @@ DOTFILES="$(find ${DOTFILES_DIR} -maxdepth 1 \
     -a ! -iname ".gitignore" \
     -a ! -iname ".gitmodules" \) \
     2> /dev/null)"
+PLUGINS_DIR=${DOTFILES_DIR}/plugins
 
 while getopts ":d:iph" optname; do
     case "${optname}" in
@@ -111,16 +112,39 @@ interactive () {
     done
 }
 
+exec_plugins() {
+    [[ `find ${PLUGINS_DIR} -executable -type f` ]]
+    if [ "$?" == "0" ]; then
+        echo -n "Seems like are present some plugins, would you like to execute: "
+        echo -n "(yes/no): "
+        read INPUT
+        if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
+            for f in `ls ${PLUGINS_DIR}`; do
+                echo -n "Exec plugin ${f}: "
+                ${PLUGINS_DIR}/${f} > /dev/null 2>&1
+                print_status
+            done
+        elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
+            return
+        else
+            echo "Answer yes/YES or no/NO"
+        fi
+    fi
+}
+
 if [ ${INTERACTIVE} ];then
     interactive
+    exec_plugins
     pull_submodule
 elif [ ${PULL} ];then
+    exec_plugins
     pull_submodule
 else
     for f in ${DOTFILES}; do
         FILENAME=$(basename $f)
         check_and_create
     done
+    exec_plugins
     pull_submodule
 fi
 

@@ -4,6 +4,6 @@
 # runs your .bashrc and is recommended by the bash info pages.
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-# Manage screen check on startup
-#[ `screen -ls |cut -d "." -f 2|grep work |awk '{print $1}'|wc -l` = 0 ] && `/usr/bin/screen -S work -s bash -T vt100 -t local -O`
+# Manage the OpenSSH rsa key on login
+eval `keychain --eval --nogui -Q -q id_rsa`
 

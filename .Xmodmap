@@ -1,0 +1,13 @@
+! .Xmodmap User keymaps file
+! Load using the commang "xmodmap ~/.Xmodmap"
+
+! Some useful examples
+! <Compose>-' + a = á
+! <Compose>-` + E = È
+! <Compose>-` + e = è
+
+! Use xev to detect the keycode
+
+! Compose key: Right Alt key
+keycode 108 = Multi_key
+

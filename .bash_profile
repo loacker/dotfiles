@@ -5,5 +5,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Manage the OpenSSH rsa key on login
-eval `keychain --eval --nogui -Q -q id_rsa`
+if [ "$EUID" != "0" ] || [ "$USER" != "root" ] ; then
+    eval `keychain --eval --nogui -Q -q id_rsa`
+fi
 

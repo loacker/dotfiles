@@ -26,7 +26,6 @@
 ! green     #859900  2/2 green      64 #5f8700 60 -20  65 133 153   0  68 100 60
 
 ! Common
-
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
 #define S_red           #dc322f
@@ -36,9 +35,7 @@
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-
 ! Dark
-
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
@@ -48,9 +45,7 @@
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
-
 ! Light
-
 ! #define S_base03        #fdf6e3
 ! #define S_base02        #eee8d5
 ! #define S_base01        #93a1a1
@@ -59,37 +54,6 @@
 ! #define S_base1         #586e75
 ! #define S_base2         #073642
 ! #define S_base3         #002b36
-
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
-
-!*background:              S_base03
-!*foreground:              S_base0
-*fading:                  40
-*fadeColor:               S_base03
-*cursorColor:             S_base1
-*pointerColorBackground:  S_base01
-*pointerColorForeground:  S_base1
-
-*color0:                  S_base02
-*color1:                  S_red
-*color2:                  S_green
-*color3:                  S_yellow
-*color4:                  S_blue
-*color5:                  S_magenta
-*color6:                  S_cyan
-*color7:                  S_base2
-*color9:                  S_orange
-*color8:                  S_base03
-*color10:                 S_base01
-*color11:                 S_base00
-*color12:                 S_base0
-*color13:                 S_violet
-*color14:                 S_base1
-*color15:                 S_base3
 
 ! ----------------------------------------------
 
@@ -111,37 +75,61 @@
 ! color14 (bright cyan)    = Cyan
 ! color15 (bright white)   = White
 
-! --------------------
-! XTerm Global Options
-! --------------------
+! black / bright black
+*color0:                  S_base02
+*color8:                  S_base03
+! red / bright red
+*color1:                  S_red
+*color9:                  S_orange
+! green / bright green
+*color2:                  S_green
+*color10:                 S_base01
+! yellow / bright yellow
+*color3:                  S_yellow
+*color11:                 S_base00
+! blue / bright blue
+*color4:                  S_blue
+*color12:                 S_base0
+! magenta / bright magenta
+*color5:                  S_magenta
+*color13:                 S_violet
+! cyan / bright cyan
+*color6:                  S_cyan
+*color14:                 S_base1
+! white / bright white
+*color7:                  S_base2
+*color15:                 S_base3
 
-XTerm*termName: xterm-256color
-XTerm*FaceName: andale mono
-XTerm*FaceSize: 15
-XTerm*renderFont: true
+! ----------------------------------------------
 
-!XTerm*background: black
-XTerm*background: S_base03
-!XTerm*foreground: green
-XTerm*foreground: S_base0
+! --------------
+! Global Options
+! --------------
 
-!XTerm*highlightColor: red
-!XTerm*highlightColor: blue
+*fading:                  40
+*fadeColor:               S_base03
+*cursorColor:             S_base1
+*pointerColorBackground:  S_base01
+*pointerColorForeground:  S_base1
 
-!XTerm*colorBDMode: true
-!XTerm*colorBD: white
-!XTerm*colorULMode: true
-!XTerm*colorUL: cyan
+! ----------------------------------------------
 
-!XTerm*pointerColor: black
-!XTerm*pointerColorBackground: white
-!XTerm*cursorColor: white
+! -----------
+! Xft Options
+! -----------
+Xft.antialias:	1
+Xft.autohint:	0
+Xft.dpi:	96
+Xft.hinting:	1
+Xft.hintstyle:	hintfull
+Xft.lcdfilter:	lcddefault
+Xft.rgba:	rgb
 
-XTerm*saveLines: 10000
+! ----------------------------------------------
 
-! --------------------
-! URxvt Global Options
-! --------------------
+! -------------
+! URxvt Options
+! -------------
 
 ! General
 !URxvt*termName: rxvt-256color
@@ -163,8 +151,6 @@ URxvt*boldFont: xft:andale mono:antialias=true:bold:size=14
 URxvt*italicFont: xft:andale mono:antialias=true:italic:size=14
 URxvt*boldItalicFont: xft:andale mono:antialias=true:bold:italic:size=14
 
-!URxvt*font: xft:inconsolata:size=10:antialias=true
-
 ! Set the style of the scrollbar: rxvt (default), plain, next, xterm
 URxvt*scrollstyle: rxvt
 
@@ -180,18 +166,63 @@ URxvt.print-pipe: "cat > /dev/null"
 !URxvt*transparent:true
 
 ! Set others feature
-URxvt*perl-ext: matcher
-URxvt*urlLauncher: firefox-bin
+URxvt*perl-ext-common:	matcher, font-size, clipboard
+URxvt*urlLauncher: firefox-bin -new-tab
+URxvt*matcher.button: 1
+URxvt*keysym.C-Down: perl:font-size:decrease
+URxvt*keysym.C-Up: perl:font-size:increase
+URxvt*keysym.C-M-v: perl:clipboard:paste_escaped
+URxvt*keysym.C-S-c: perl:clipboard:copy
+URxvt*keysym.C-S-v: perl:clipboard:paste
 
 ! Set default color
-URxvt*foreground: Green
-URxvt*background: Black
+!URxvt*foreground: Green
+!URxvt*foreground: S_base0
+URxvt*foreground: #80FF00
+!URxvt*background: Black
+URxvt*background: S_base03
+
 
 ! Set colored man pages
-URxvt.colorIT: Yellow3
-URxvt.colorBD: AntiqueWhite
-URxvt.colorUL: Red
+URxvt*colorIT: Yellow3
+URxvt*colorBD: AntiqueWhite
+URxvt*colorUL: Red
 
 ! Config for solarized color scheme
-URxvt.intensityStyles: false
+URxvt*intensityStyles: false
+
+! ----------------------------------------------
+
+! -------------
+! XTerm Options
+! -------------
+
+XTerm*termName: xterm-256color
+XTerm*FaceName: andale mono
+XTerm*FaceSize: 15
+XTerm*renderFont: true
+
+XTerm*background: black
+XTerm*foreground: green
+
+!XTerm*highlightColor: red
+!XTerm*highlightColor: blue
+
+!XTerm*colorBDMode: true
+!XTerm*colorBD: white
+!XTerm*colorULMode: true
+!XTerm*colorUL: cyan
+
+!XTerm*pointerColor: black
+!XTerm*pointerColorBackground: white
+!XTerm*cursorColor: white
+
+XTerm*saveLines: 10000
+
+XTerm*font: xft:inconsolate:antialias=true:size=14
+XTerm*boldFont: xft:inconsolate:antialias=true:bold:size=15
+XTerm*italicFont: xft:inconsolate:antialias=true:italic:size=14
+XTerm*boldItalicFont: xft:inconsolate:antialias=true:bold:italic:size=14
+
+! ----------------------------------------------
 

@@ -45,5 +45,5 @@ EOF
 
 }
 
-[[ ! -f "${BIN_PATH}/runonce" ]] && runonce_script
+[[ -f "${BIN_PATH}/runonce" ]] || runonce_script
 

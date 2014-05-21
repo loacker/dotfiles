@@ -66,18 +66,21 @@ make_bck() {
 
 pull_submodule() {
     if [ -f "${DOTFILES_DIR}/.gitmodules" ];then
-        echo -n "Seems like are present some submodules, would you like to pull"
-        echo -n "(yes/no): "
-        read INPUT
-        if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
-            cd ${DOTFILES_DIR} && \
-            git config alias.pullall '!f(){ git pull "$@" && git submodule update --init --recursive; }; f'
-            cd ${DOTFILES_DIR} && git pullall
-        elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
-            return
-        else
-            echo "Answer yes/YES or no/NO"
-        fi
+        while true; do
+            echo -n "Seems like are present some submodules, would you like to pull"
+            echo -n "(yes/no): "
+            read INPUT
+            if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
+                cd ${DOTFILES_DIR} && \
+                git config alias.pullall '!f(){ git pull "$@" && git submodule update --init --recursive; }; f'
+                cd ${DOTFILES_DIR} && git pullall
+                break
+            elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
+                break
+            else
+                echo "Answer yes/YES or no/NO"
+            fi
+        done
     fi
 }
 
@@ -115,20 +118,23 @@ interactive () {
 exec_plugins() {
     [[ `find ${PLUGINS_DIR} -executable -type f` ]]
     if [ "$?" == "0" ]; then
-        echo -n "Seems like are present some plugins, would you like to execute: "
-        echo -n "(yes/no): "
-        read INPUT
-        if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
-            for f in `ls ${PLUGINS_DIR}`; do
-                echo -n "Exec plugin ${f}: "
-                ${PLUGINS_DIR}/${f} > /dev/null 2>&1
-                print_status
-            done
-        elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
-            return
-        else
-            echo "Answer yes/YES or no/NO"
-        fi
+        while true; do
+            echo -n "Seems like are present some plugins, would you like to execute: "
+            echo -n "(yes/no): "
+            read INPUT
+            if [ "${INPUT}" == "yes" -o "${INPUT}" == "YES" ];then
+                for f in `ls ${PLUGINS_DIR}`; do
+                    echo -n "Exec plugin ${f}: "
+                    ${PLUGINS_DIR}/${f} > /dev/null 2>&1
+                    print_status
+                done
+                break
+            elif [ "${INPUT}" == "no" -o "${INPUT}" == "NO" ];then
+                break
+            else
+                echo "Answer yes/YES or no/NO"
+            fi
+        done
     fi
 }
 

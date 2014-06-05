@@ -166,14 +166,15 @@ URxvt.print-pipe: "cat > /dev/null"
 !URxvt*transparent:true
 
 ! Set others feature
-URxvt*perl-ext-common:	matcher, font-size, clipboard
-URxvt*urlLauncher: firefox-bin -new-tab
-URxvt*matcher.button: 1
-URxvt*keysym.C-Down: perl:font-size:decrease
-URxvt*keysym.C-Up: perl:font-size:increase
-URxvt*keysym.C-M-v: perl:clipboard:paste_escaped
-URxvt*keysym.C-S-c: perl:clipboard:copy
-URxvt*keysym.C-S-v: perl:clipboard:paste
+! N.B. No space between perl script definition
+URxvt.perl-ext-common: default,font-size,url-select
+! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/firefox-bin -new-tab
+URxvt.url-select.underline: true
+! font-size
+URxvt.keysym.C-Up: perl:font-size:increase
+URxvt.keysym.C-Down: perl:font-size:decrease
 
 ! Set default color
 !URxvt*foreground: Green
@@ -220,7 +221,7 @@ XTerm*foreground: green
 XTerm*saveLines: 10000
 
 XTerm*font: xft:inconsolate:antialias=true:size=14
-XTerm*boldFont: xft:inconsolate:antialias=true:bold:size=15
+XTerm*boldFont: xft:inconsolate:antialias=true:bold:size=14
 XTerm*italicFont: xft:inconsolate:antialias=true:italic:size=14
 XTerm*boldItalicFont: xft:inconsolate:antialias=true:bold:italic:size=14
 

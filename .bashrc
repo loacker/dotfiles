@@ -48,15 +48,6 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 stty -ixon
 #bind "\C-t":forward-search-history
 
-# Alias definition
-alias vless='/usr/share/vim/vim??/macros/less.sh'
-alias ls='ls --color=always'
-alias grep='grep --colour=always'
-alias egrep='egrep --colour=always'
-alias fgrep='fgrep --colour=always'
-alias virls='virsh list --all'
-alias down='sudo shutdown -h now'
-
 # Set dircolors
 eval `dircolors .dircolors`
 
@@ -115,6 +106,10 @@ _git_ps1 () {
 
 [[ "$-" != "*i*" ]] && PS1='$(_git_ps1)'$PS1
 #PS1='$(_git_ps1 "%s")'$PS1
+
+# Alias definition
+alias virls='virsh list --all'
+alias down='sudo shutdown -h now'
 
 # Virtualenvwrapper config
 export WORKON_HOME=~/.virtualenvs

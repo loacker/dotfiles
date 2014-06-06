@@ -15,7 +15,8 @@ if [[ $- != *i* ]] ; then
 fi
 
 # User specific PATH variables
-export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/1.8/bin
+LOCAL_RUBY_PATH=$(ls -d ~/.gem/ruby/*/bin)
+export PATH=$PATH:~/bin:~/.local/bin:${LOCAL_RUBY_PATH//[[:space:]]/:}
 
 # LIBVIRT Default URI
 export LIBVIRT_DEFAULT_URI=qemu:///system
@@ -49,7 +50,7 @@ stty -ixon
 #bind "\C-t":forward-search-history
 
 # Set dircolors
-eval `dircolors .dircolors`
+eval `dircolors ~/.dircolors`
 
 # Color escape sequence
 C_DEFAULT='\033[0m'

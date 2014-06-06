@@ -15,8 +15,8 @@ if [[ $- != *i* ]] ; then
 fi
 
 # User specific PATH variables
-LOCAL_RUBY_PATH=$(ls -d ~/.gem/ruby/*/bin)
-export PATH=$PATH:~/bin:~/.local/bin:${LOCAL_RUBY_PATH//[[:space:]]/:}
+[[ -d ~/.gem ]] && LOCAL_RUBYPATH=$(ls -d ~/.gem/ruby/*/bin)
+export PATH=$PATH:~/bin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}
 
 # LIBVIRT Default URI
 export LIBVIRT_DEFAULT_URI=qemu:///system

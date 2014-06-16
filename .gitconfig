@@ -10,8 +10,7 @@
 	ui = true
 	status = true
 [format]
-	#pretty = '%Cred%h%Creset - %C(yellow)%ad%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-	pretty = %C(bold red)%h %C(bold yellow)%d %C(bold green)%ad %C(bold white)'%s' %C(bold green)(%cr) %C(bold blue)<%an>
+	pretty = %C(cyan)%h %C(red)%d %C(green)%ad %C(yellow)'%s' %C(green)(%cr) %C(blue)<%an>
 [log]
 	date = short
 	decorate = long

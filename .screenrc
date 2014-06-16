@@ -35,7 +35,7 @@ defutf8 on
 #defflow off
 
 # Set default terminal
-term xterm
+term xterm-256color
 termcapinfo xterm ti@:te@
 
 # Start login shell (Read .bash_profile)
@@ -75,6 +75,14 @@ screen -t lcl2 2
 #resize -14
 #focus
 
+# Window list at the bottom of the screen
+# caption show the info on all tab region
+# hardstatus string show the info on an xterm title
+# hardstatus alwayslastline  show the info at the bottom of the screen 
+
+caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
+hardstatus alwayslastline "%{= R.} %{=b R.}%-w%{=b kR}[%n %t]%{-}%+w %< %>%=%{=b R.}[%u]%<"
+
 # ACL examples
 #multiuser on
 #acladd <username>
@@ -84,23 +92,3 @@ screen -t lcl2 2
 #aclchg betty +rwx "#?" # enable r/w access
 #aclchg betty -x "#,at,aclchg,acladd,acldel,quit"
 #source .screenrc
-
-# Window list at the bottom of the screen
-# caption show the info on all tab region
-# hardstatus string show the info on an xterm title
-# hardstatus alwayslastline  show the info at the bottom of the screen 
-
-#caption always "%n(%t) : %C"
-caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
-
-#hardstatus on
-#hardstatus alwayslastline
-#hardstatus string '%{= kG}%-Lw%{= kW}%70> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
-#hardstatus alwayslastline "%{=b YR}%50> %{=b YR}%-w%{=b kR}[%n %t]%{-}%+w %< %>%=%{=B YR}[%u]%<"
-hardstatus alwayslastline "%{=b RW}%50> %{=b RW}%-w%{=b kW}[%n %t]%{-}%+w %< %>%=%{=B RW}[%u]%<"
-
-# Test
-#hardstatus off
-#hardstatus string "screen %n (%t)%? [%h]%?"
-#caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f*%t%{-}%+Lw%-0<"
-

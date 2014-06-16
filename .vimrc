@@ -48,16 +48,15 @@ set ruler
 " Set status line color
 " ---------------------
 set laststatus=2 " Full status line 
-au InsertEnter * hi StatusLine term=reverse ctermfg=red ctermbg=white
-au InsertLeave * hi StatusLine term=reverse ctermfg=white ctermbg=red
-"highlight StatusLine term=reverse ctermfg=red ctermbg=white
-hi StatusLineNC term=reverse ctermfg=blue ctermbg=yellow
+au InsertEnter * hi StatusLine ctermfg=red
+au InsertLeave * hi StatusLine ctermfg=255
+hi StatusLineNC ctermfg=blue
 
 " Set Number color
 " ----------------
 set number
 set numberwidth=3
-highlight LineNr ctermfg=white ctermbg=black
+highlight LineNr ctermfg=yellow ctermbg=white
 
 " Set insert completion popup menu c-x + c-o
 " ------------------------------------------

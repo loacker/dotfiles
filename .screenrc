@@ -81,7 +81,7 @@ screen -t lcl2 2
 # hardstatus alwayslastline  show the info at the bottom of the screen 
 
 caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
-hardstatus alwayslastline "%{= R.} %{=b R.}%-w%{=b kR}[%n %t]%{-}%+w %< %>%=%{=b R.}[%u]%<"
+hardstatus alwayslastline "%{=b rW} %{=b rW}%-w%{=b kr}[%n %t]%{-}%+w %< %>%=%{=b rW}[%u]%<"
 
 # ACL examples
 #multiuser on

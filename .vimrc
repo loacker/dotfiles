@@ -48,24 +48,30 @@ set ruler
 " Set status line color
 " ---------------------
 set laststatus=2 " Full status line 
-au InsertEnter * hi StatusLine ctermfg=red
-au InsertLeave * hi StatusLine ctermfg=255
-hi StatusLineNC ctermfg=blue
+au InsertEnter * hi StatusLine ctermfg=darkred ctermbg=black
+au InsertLeave * hi StatusLine ctermfg=white ctermbg=black
+"hi StatusLineNC ctermfg=lightblue
+hi StatusLineNC ctermfg=DarkBlue
 
 " Set Number color
 " ----------------
 set number
 set numberwidth=3
-highlight LineNr ctermfg=yellow ctermbg=white
+highlight LineNr ctermfg=LightYellow ctermbg=black
 
-" Set insert completion popup menu c-x + c-o
-" ------------------------------------------
+" Set imert completion popup menu c-x + c-o
+" -------------------------------m---------
 set pumheight=3
+
+" Nice chars when set list is on
+" ------------------------------
+"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\_,
 
 " Visualizing tabs
 " ----------------
 syntax match tab /\t/
-hi tab gui=underline guifg=blue ctermbg=blue 
+hi tab ctermfg=yellow ctermbg=red
 
 " Show command in the last line of the screen
 " es. The leader key when pressed until the timeout left
@@ -79,7 +85,7 @@ noremap <Leader>W :w !sudo tee % > /dev/null
 
 " VimCommander toggle
 " -------------------
-noremap <silent> <F2> :cal VimCommanderToggle()<CR> 
+noremap <silent> <F2> :cal VimCommanderToggle()<CR>
 
 " EasyBuffer toggle
 " -----------------

@@ -54,24 +54,24 @@ eval `dircolors ~/.dircolors`
 
 # Color escape sequence
 C_RESET='\033[0m'
-C_WHITE='\033[0;1m'
 C_BLACK='\033[0;30m'
 C_RED='\033[0;31m'
 C_GREEN='\033[0;32m'
 C_YELLOW='\033[0;33m'
 C_BLUE='\033[0;34m'
-C_PURPLE='\033[0;35m'
+C_MAGENTA='\033[0;35m'
 C_CYAN='\033[0;36m'
-C_GRAY='\033[0;37m'
+C_WHITE='\033[0;37m'
 
+C_BOLD_RESET='\033[1m'
 C_BOLD_BLACK='\033[1;30m'
 C_BOLD_RED='\033[1;31m'
 C_BOLD_GREEN='\033[1;32m'
 C_BOLD_YELLOW='\033[1;33m'
 C_BOLD_BLUE='\033[1;34m'
-C_BOLD_PURPLE='\033[1;35m'
+C_BOLD_MAGENTA='\033[1;35m'
 C_BOLD_CYAN='\033[1;36m'
-C_BOLD_GRAY='\033[1;37m'
+C_BOLD_WHITE='\033[1;37m'
 
 # Set Colorful PS1
 # Attribute codes: 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
@@ -80,7 +80,7 @@ C_BOLD_GRAY='\033[1;37m'
 # with the equivalent octal code \001 and \002, the octal code \033 can be substituted by '\e'.
 # If you don't escape the prompt break the newline like inserting a carriage return 
 
-PS1="\[${C_BOLD_GREEN}\]\u\[${C_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_WHITE}\]:\[${C_BOLD_CYAN}\]\w\[${C_BOLD_YELLOW}\] \$\[${C_RESET}\] "
+PS1="\[${C_BOLD_GREEN}\]\u\[${C_BOLD_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_BOLD_WHITE}\]:\[${C_BOLD_CYAN}\]\w\[${C_BOLD_YELLOW}\] \$\[${C_RESET}\] "
 
 # Extend PS1 with colorful/dynamic git branch
 # Escape the start and the end

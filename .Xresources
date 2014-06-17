@@ -1,76 +1,60 @@
 ! Reload with "xrdb -load ~/.Xresources"
 
-! ----------------------------------------------
-! Theme TomorrowNightBright
-! ----------------------------------------------
+! ----------------
+! Color info table 
+! ----------------
+! +-------------------+--------------------------+
+! | Color0  (black)   | color8  (bright black)   |
+! | Color1  (red)     | color9  (bright red)     |
+! | Color2  (green)   | color10 (bright green)   |
+! | Color3  (yellow)  | color11 (bright yellow)  |
+! | Color4  (blue)    | color12 (bright blue)    |
+! | Color5  (magenta) | color13 (bright magenta) |
+! | Color6  (cyan)    | color14 (bright cyan)    |
+! | Color7  (white)   | color15 (bright white)   |
+! +-------------------+--------------------------+
 
-! Color info
-! color0  (black)          = Black
-! color1  (red)            = Red3
-! color2  (green)          = Green3
-! color3  (yellow)         = Yellow3
-! color4  (blue)           = Blue3
-! color5  (magenta)        = Magenta3
-! color6  (cyan)           = Cyan3
-! color7  (white)          = AntiqueWhite
-! color8  (bright black)   = Grey25
-! color9  (bright red)     = Red
-! color10 (bright green)   = Green
-! color11 (bright yellow)  = Yellow
-! color12 (bright blue)    = Blue
-! color13 (bright magenta) = Magenta
-! color14 (bright cyan)    = Cyan
-! color15 (bright white)   = White
+! ------------------------------------------------------
+! Base16 3024 - Jan T. Sott (http://github.com/idleberg)
+! ------------------------------------------------------
 
-!TomorrowNightBright
-#define t_background            #000000
-#define t_current_line          #2a2a2a
-#define t_selection      	#424242
-#define t_foreground      	#eaeaea
-#define t_comment	     	#969896
-#define t_red		     	#d54e53
-#define t_orange	     	#e78c45
-#define t_yellow        	#e7c547
-#define t_green	        	#b9ca4a
-#define t_aqua	        	#70c0b1
-#define t_blue	        	#7aa6da
-#define t_purple        	#c397d8
+#define base00 #090300
+#define base01 #3a3432
+#define base02 #4a4543
+#define base03 #5c5855
+#define base04 #807d7c
+!#define base05 #a5a2a2 ! Changed in a more light gray
+#define base05 #d8d8d8
+#define base06 #d6d5d4
+#define base07 #f7f7f7
+#define base08 #db2d20
+#define base09 #e8bbd0
+#define base0A #fded02
+#define base0B #01a252
+#define base0C #b5e4f4
+#define base0D #01a0e4
+#define base0E #a16a94
+#define base0F #cdab53
 
-*.foreground:   t_foreground
-*.background:   t_background
-*.cursorColor:  #aeafad
-
-! Black / Grey
-*.color0:       #000000
-*.color8:       #666666
-
-! Red / Bright Red
-*.color1:       t_red
-*.color9:       #FF3334
-
-! Green + Bright Green
-*.color2:       t_green
-*.color10:      #9ec400
-
-! Yellow (Orange) + Bright Yellow (Yellow)
-*.color3:       t_orange
-*.color11:      t_yellow
-
-! Blue + Bright Blue
-*.color4:       t_blue
-*.color12:      t_blue
-
-! Magenta (Purple) + Bright Magenta
-*.color5:       t_purple
-*.color13:      #b777e0
-
-! Cyan (Aqua) + Bright Cyan
-*.color6:       t_aqua
-*.color14:      #54ced6
-
-! Light Grey (Selection) + White (Current Line)
-*.color7:       t_selection
-*.color15:      t_current_line
+*.foreground:  base05
+*.background:  base00
+*.cursorColor: base05
+*.color0:      base00
+*.color1:      base08
+*.color2:      base0B
+*.color3:      base0A
+*.color4:      base0D
+*.color5:      base0E
+*.color6:      base0C
+*.color7:      base05
+*.color8:      base03
+*.color9:      base09
+*.color10:     base01
+*.color11:     base02
+*.color12:     base04
+*.color13:     base06
+*.color14:     base0F
+*.color15:     base07
 
 ! ----------------------------------------------
 
@@ -78,8 +62,8 @@
 ! Global Options
 ! --------------
 
-*fading:         40
-*fadeColor:      #666666
+*fading:       40
+*fadeColor:    #666666
 
 ! ----------------------------------------------
 
@@ -87,13 +71,13 @@
 ! Xft Options
 ! -----------
 
-Xft.antialias:	1
-Xft.autohint:	0
-Xft.dpi:	96
-Xft.hinting:	1
-Xft.hintstyle:	hintfull
-Xft.lcdfilter:	lcddefault
-Xft.rgba:	rgb
+Xft.antialias: 1
+Xft.autohint:  0
+Xft.dpi:       96
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
 
 ! ----------------------------------------------
 
@@ -102,23 +86,23 @@ Xft.rgba:	rgb
 ! -------------
 
 ! General
-URxvt*termName: xterm-256color
-!URxvt*termName: rxvt-unicode-256color
-URxvt*loginShell: true
-URxvt*scrollBar: false
-URxvt*secondaryScroll: true
-URxvt*saveLines: 65535
-URxvt*cursorBlink: true
-URxvt*urgentOnBell: true
-!URxvt*override-redirect:false
-!URxvt*borderLess:       false
-!URxvt*internalBorder:       0
-!URxvt*externalBorder:       0
+URxvt*termName:           xterm-256color
+!URxvt*termName:           rxvt-unicode-256color
+URxvt*loginShell:         true
+URxvt*scrollBar:          false
+URxvt*secondaryScroll:    true
+URxvt*saveLines:          65535
+URxvt*cursorBlink:        true
+URxvt*urgentOnBell:       true
+!URxvt*override-redirect:  false
+!URxvt*borderLess:         false
+!URxvt*internalBorder:     0
+!URxvt*externalBorder:     0
 
 ! Font config
-URxvt*font: xft:andale mono:antialias=true:size=14
-URxvt*boldFont: xft:andale mono:antialias=true:bold:size=14
-URxvt*italicFont: xft:andale mono:antialias=true:italic:size=14
+URxvt*font:           xft:andale mono:antialias=true:size=14
+URxvt*boldFont:       xft:andale mono:antialias=true:bold:size=14
+URxvt*italicFont:     xft:andale mono:antialias=true:italic:size=14
 URxvt*boldItalicFont: xft:andale mono:antialias=true:bold:italic:size=14
 
 ! Set the style of the scrollbar: rxvt (default), plain, next, xterm
@@ -129,19 +113,19 @@ URxvt*scrollstyle: rxvt
 URxvt.print-pipe: "cat > /dev/null"
 
 ! Set pseudo transparency
-!URxvt*shading:    50
-!URxvt*transparent:true
+!URxvt*shading:     50
+!URxvt*transparent: true
 
 ! Set others feature
 ! N.B. No space between perl script definition
-URxvt.perl-ext-common: default,font-size,url-select
+URxvt.perl-ext-common:      default,font-size,url-select
 ! url-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/firefox-bin -new-tab
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.url-select.launcher:  /usr/bin/firefox-bin -new-tab
 URxvt.url-select.underline: true
 ! font-size
-URxvt.keysym.C-Up: perl:font-size:increase
-URxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.keysym.C-Up:          perl:font-size:increase
+URxvt.keysym.C-Down:        perl:font-size:decrease
 
 ! Set default color
 !URxvt*foreground: Green
@@ -150,12 +134,12 @@ URxvt.keysym.C-Down: perl:font-size:decrease
 !URxvt*background: #002b36
 
 ! Set colored man pages
-URxvt*colorIT: t_blue
-URxvt*colorBD: AntiqueWhite
-URxvt*colorUL: t_red
+URxvt*colorIT: base0A
+URxvt*colorBD: base07
+URxvt*colorUL: base08
 
 ! Config for solarized color scheme
-!URxvt*intensityStyles: false
+URxvt*intensityStyles: false
 
 ! ----------------------------------------------
 
@@ -163,32 +147,32 @@ URxvt*colorUL: t_red
 ! XTerm Options
 ! -------------
 
-XTerm*termName: xterm-256color
-XTerm*FaceName: andale mono
-XTerm*FaceSize: 15
+XTerm*termName:   xterm-256color
+XTerm*FaceName:   andale mono
+XTerm*FaceSize:   15
 XTerm*renderFont: true
 
 XTerm*background: black
 XTerm*foreground: green
 
-!XTerm*highlightColor: red
-!XTerm*highlightColor: blue
+!XTerm*highlightColor:          red
+!XTerm*highlightColor:          blue
 
-!XTerm*colorBDMode: true
-!XTerm*colorBD: white
-!XTerm*colorULMode: true
-!XTerm*colorUL: cyan
+!XTerm*colorBDMode:             true
+!XTerm*colorBD:                 white
+!XTerm*colorULMode:             true
+!XTerm*colorUL:                 cyan
 
-!XTerm*pointerColor: black
-!XTerm*pointerColorBackground: white
-!XTerm*cursorColor: white
+!XTerm*pointerColor:            black
+!XTerm*pointerColorBackground:  white
+!XTerm*cursorColor:             white
 
 XTerm*saveLines: 10000
 
-XTerm*font: xft:inconsolate:antialias=true:size=14
-XTerm*boldFont: xft:inconsolate:antialias=true:bold:size=14
-XTerm*italicFont: xft:inconsolate:antialias=true:italic:size=14
-XTerm*boldItalicFont: xft:inconsolate:antialias=true:bold:italic:size=14
+XTerm*font:           xft:inconsolata:antialias=true:size=14
+XTerm*boldFont:       xft:inconsolata:antialias=true:bold:size=14
+XTerm*italicFont:     xft:inconsolata:antialias=true:italic:size=14
+XTerm*boldItalicFont: xft:inconsolata:antialias=true:bold:italic:size=14
 
 ! ----------------------------------------------
 

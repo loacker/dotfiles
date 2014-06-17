@@ -80,7 +80,7 @@ C_BOLD_WHITE='\033[1;37m'
 # with the equivalent octal code \001 and \002, the octal code \033 can be substituted by '\e'.
 # If you don't escape the prompt break the newline like inserting a carriage return 
 
-PS1="\[${C_BOLD_GREEN}\]\u\[${C_BOLD_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_BOLD_WHITE}\]:\[${C_BOLD_CYAN}\]\w\[${C_BOLD_YELLOW}\] \$\[${C_RESET}\] "
+PS1="\[${C_BOLD_GREEN}\]\u\[${C_BOLD_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_BOLD_WHITE}\]:\[${C_BOLD_CYAN}\]\W\[${C_BOLD_YELLOW}\] \\$\[${C_RESET}\] "
 
 # Extend PS1 with colorful/dynamic git branch
 # Escape the start and the end

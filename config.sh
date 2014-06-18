@@ -18,8 +18,8 @@ function usage() {
 \tInteractively choice which file to link using "-i" args.${RST}\n\n" $0
 }
 
-DOTFILES_DIR=${DOTFILES_DIR=~/dotfiles}
-DOTFILES="$(find ${DOTFILES_DIR} -maxdepth 1 \
+DOTFILES_DIR=${DOTFILES_DIR=~/.dotfiles}
+DOTFILES="$(find ${DOTFILES_DIR} -mindepth 1 -maxdepth 1 \
     \( -iname "*.*" \
     -a ! \( -iname ".git" -type d \) \
     -a ! \( -iname "bck" -type d \)\
@@ -53,7 +53,7 @@ print_status(){
 
 create_link() {
     echo -n "Create a symbolic link for the file $(basename $f): "
-    ln -s $(basename ${DOTFILES_DIR})/${FILENAME} ../${FILENAME} > /dev/null 2>&1
+    ln -sr ${DOTFILES_DIR}/${FILENAME} ~/${FILENAME} > /dev/null 2>&1
     print_status
 }
 

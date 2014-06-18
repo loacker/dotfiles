@@ -109,6 +109,8 @@ _git_ps1 () {
 # Alias definition
 alias virls='virsh list --all'
 alias down='sudo shutdown -h now'
+alias ncmpcpp='[ ! -s ~/.mpd/pid ] && mpd && ncmpcpp || ncmpcpp'
+alias vimpc='[ ! -s ~/.mpd/pid ] && mpd && vimpc || vimpc'
 
 # Virtualenvwrapper config
 export WORKON_HOME=~/.virtualenvs

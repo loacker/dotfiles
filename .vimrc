@@ -79,6 +79,7 @@ hi tab ctermfg=yellow ctermbg=red
 set showcmd
 
 " My command shortcuts
+
 " Map for save a file with sudo privilege (sudo rules must exist)
 " ---------------------------------------------------------------
 noremap <Leader>W :w !sudo tee % > /dev/null
@@ -121,6 +122,13 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+function! PyAppendModeline()
+  let l:pymodeline = printf("%s",
+	\ '# vim: set ts=8 sw=4 sts=4 tw=79 ff=unix ft=python et ai :')
+  call append(line("$"), l:pymodeline)
+endfunction
+nnoremap <silent> <Leader>pml :call PyAppendModeline()<CR>
 
 " Some modeline example
 " ---------------------

@@ -108,23 +108,25 @@ map <C-n> :NERDTreeToggle<CR>
 " ------------
 "map g :GundoToggle<CR>
 
-" #############################################
-" Set default modeline (Python PEP 8 compliant)
-" ---------------------------------------------
-"set tabstop=8 " Default
-"set softtabstop=4
-"set shiftwidth=4
-"set expandtab
-"set textwidth=79
-" #############################################
+" Modeline
+" --------
+" From http://vim.wikia.com/wiki/Modeline_magic
+" Append modeline after last line in buffer.
+" Example for set "noet" with printf
+" printf(" vim: set %set :", &expandtab ? '' : 'no')
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ts=%d sw=%d sts=%d tw=%d ff=%s ft=%s et ai :",
+        \ &tabstop, &shiftwidth, &softtabstop, &textwidth, &fileformat, &filetype)
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 " Some modeline example
 " ---------------------
-" vi: ts=8 sw=4 sts=4 ai et
-" vi: ts=8 sw=4 sts=4 ai et tw=79
-" vim: tabstop=8:softtabstop=4:shiftwidth=4:expandtab:textwidth=79
-" vim: tabstop=8:softtabstop=4:shiftwidth=4:expandtab 
-" vim: tabstop=4:softtabstop=2:shiftwidth=2:expandtab
+" # vi: ts=8 sw=4 sts=4 ai et tw=79
+" # vim: set ts=8 sw=4 sts=4 ai et tw=79:
+" # vim: tabstop=8:softtabstop=4:shiftwidth=4:expandtab:textwidth=79:autoindent
 
 " N.B. Inserted five blank row otherwise vim will look for the modeline
 

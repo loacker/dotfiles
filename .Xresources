@@ -23,7 +23,8 @@
 #define base02 #4a4543
 #define base03 #5c5855
 #define base04 #807d7c
-!#define base05 #a5a2a2 ! Changed in a more light gray
+!#define base05 #a5a2a2
+! Changed in a more light gray
 #define base05 #d8d8d8
 #define base06 #d6d5d4
 #define base07 #f7f7f7
@@ -37,7 +38,8 @@
 #define base0F #cdab53
 
 *.foreground:  base05
-*.background:  base00
+!*.background:  base00 
+*.background:  #002020
 *.cursorColor: base05
 *.color0:      base00
 *.color1:      base08
@@ -126,12 +128,6 @@ URxvt.url-select.underline: true
 ! font-size
 URxvt.keysym.C-Up:          perl:font-size:increase
 URxvt.keysym.C-Down:        perl:font-size:decrease
-
-! Set default color
-!URxvt*foreground: Green
-!URxvt*background: Black
-!URxvt*foreground: #80FF00
-!URxvt*background: #002b36
 
 ! Set colored man pages
 URxvt*colorIT: base0A

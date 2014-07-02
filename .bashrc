@@ -113,9 +113,11 @@ alias ncmpcpp='[ ! -s ~/.mpd/pid ] && mpd && ncmpcpp || ncmpcpp'
 alias vimpc='[ ! -s ~/.mpd/pid ] && mpd && vimpc || vimpc'
 
 # Virtualenvwrapper config
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~/projects
-source `which virtualenvwrapper.sh`
-#export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
-#source `which virtualenvwrapper_lazy.sh`
+if [[ `which virtualenvwrapper.sh` ]];then
+    source `which virtualenvwrapper.sh`
+    #export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
+    #source `which virtualenvwrapper_lazy.sh`
+    export WORKON_HOME=~/.virtualenvs
+    export PROJECT_HOME=~/projects
+fi
 

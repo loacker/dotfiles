@@ -6,6 +6,6 @@
 
 # Manage the OpenSSH rsa key on login
 if [ "$EUID" != "0" ] || [ "$USER" != "root" ] ; then
-    eval `keychain --eval --nogui -Q -q id_rsa`
+    [[ `which keychain` ]] && eval `keychain --eval --nogui -Q -q id_rsa`
 fi
 

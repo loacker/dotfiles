@@ -79,10 +79,10 @@ group				"matteo"
 #
 # For network
 #bind_to_address		"any"
-bind_to_address		"localhost"
+bind_to_address			"localhost"
 #
 # And for Unix Socket
-bind_to_address		"~/.mpd/socket"
+bind_to_address			"~/.mpd/socket"
 #
 # This setting is the TCP port that is desired for the daemon to get assigned
 # to.
@@ -157,7 +157,7 @@ auto_update	"yes"
 # The argument to this setting will be the Zeroconf / Avahi unique name for
 # this MPD server on the network.
 #
-#zeroconf_name			"Music Player"
+#zeroconf_name			"mobyfdick_music_server"
 #
 ###############################################################################
 
@@ -172,6 +172,7 @@ auto_update	"yes"
 # This setting specifies the permissions a user has who has not yet logged in. 
 #
 #default_permissions             "read,add,control,admin"
+default_permissions             "read,add,control"
 #
 ###############################################################################
 
@@ -264,24 +265,24 @@ input {
 #}
 #
 # An example of a httpd output (built-in HTTP streaming server):
-#
+
 #audio_output {
 #	type		"httpd"
-#	name		"My HTTP Stream"
+#	name		"mobyFdick http music stream"
 #	encoder		"vorbis"		# optional, vorbis or lame
 #	port		"8000"
-#	bind_to_address	"0.0.0.0"		# optional, IPv4 or IPv6
+##	bind_to_address	"0.0.0.0"		# optional, IPv4 or IPv6
 ##	quality		"5.0"			# do not define if bitrate is defined
 #	bitrate		"128"			# do not define if quality is defined
 #	format		"44100:16:1"
-#	max_clients	"0"			# optional 0=no limit
+#	max_clients	"10"			# optional 0=no limit
 #}
-#
+
 # An example of a pulseaudio output (streaming to a remote pulseaudio server)
 #
 audio_output {
 	type		"pulse"
-	name		"My Pulse Output"
+	name		"mobyFdick pulse output"
 ##	server		"remote_server"		# optional
 ##	sink		"remote_server_sink"	# optional
 }

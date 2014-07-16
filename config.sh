@@ -54,13 +54,19 @@ print_status(){
 create_link() {
     echo -n "Create a symbolic link for the file $(basename $f): "
     ln -sr ${DOTFILES_DIR}/${FILENAME} ~/${FILENAME} > /dev/null 2>&1
+    if [[ $? == 1 ]]; then
+        cd ~
+        local DOTFILES_DIR=$(basename ${DOTFILES_DIR})
+        ln -s ${DOTFILES_DIR}/${FILENAME} ${FILENAME} > /dev/null 2>&1
+    fi
     print_status
 }
 
 make_bck() {
     echo -n "${FILENAME} is a file, make a backup: "
     [[ ! -d ${DOTFILES_DIR}/bck ]] && mkdir ${DOTFILES_DIR}/bck -p
-    mv ~/${FILENAME} ${DOTFILES_DIR}/bck/${FILENAME}_$(date +%d%m%Y_%H%M) > /dev/null 2>&1
+    local BCK_FILENAME=${FILENAME}_$(date +%d%m%Y_%H%M)
+    mv ~/${FILENAME} ${DOTFILES_DIR}/bck/${BCK_FILENAME} > /dev/null 2>&1
     print_status
 }
 

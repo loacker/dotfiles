@@ -1,11 +1,12 @@
 #!/bin/sh
 
-xrdb -load $HOME/.Xresources
+xrdb -merge ${HOME}/.Xresources
+xmodmap ${HOME}/.Xmodmap
 
-xmodmap ~/.Xmodmap
+${HOME}/bin/runonce "$(which xscreensaver) -no-splash"
 
-~/bin/runonce "$(which xscreensaver) -no-splash"
+urxvt -e screen &
 
-urxvt &
+conky -d
 
-~/bin/runonce "screen -S work"
+exec awesome

@@ -83,12 +83,15 @@ screen -t lcl2 2
 caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
 hardstatus alwayslastline "%{=b rW} %{=b rW}%-w%{=b kr}[%n %t]%{-}%+w %< %>%=%{=b rW}[%u]%<"
 
-# ACL examples
+# Screen sharing - ACL examples
+# Start the screen session with the params -S (screen -S tmp)
+# Communicate the username/session_name to the user (screen -x matteo/tmp
+# Set the ACL with the following statements (ctrl+alt + : or uncomment/set here)
+
 #multiuser on
 #acladd <username>
-#aclchg joeuser +rx "#?"  # ro, all windows, execute all commands
-#aclchg joeuser -x "#,at,aclchg,acladd,acldel,quit" # except these commands in all windows
-#acladd betty
-#aclchg betty +rwx "#?" # enable r/w access
-#aclchg betty -x "#,at,aclchg,acladd,acldel,quit"
-#source .screenrc
+# Some examples of ACL
+#aclchg <username> +rx "#?"  # ro, all windows, execute all commands
+#aclchg <username> +rwx "#?" # enable r/w access
+#aclchg <username> -x "#,at,aclchg,acladd,acldel,quit" # except these commands in all windows
+

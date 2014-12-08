@@ -7,7 +7,6 @@
 " Enable Pathongen (default dir is .vim/bundle)
 " ---------------------------------------------
 execute pathogen#infect()
-"execute pathogen#infect('stuff/{}')
 
 " Set the automatic indention per file type  
 " -----------------------------------------
@@ -33,7 +32,7 @@ set pastetoggle=<F12>
 :syntax on
 
 " Set backgroud color
-" -----------------
+" -------------------
 "set background=dark
 set background=light
 
@@ -59,8 +58,8 @@ set number
 set numberwidth=3
 highlight LineNr ctermfg=LightYellow ctermbg=black
 
-" Set imert completion popup menu c-x + c-o
-" -------------------------------m---------
+" Set popup menu height (completion menu c-x + c-o)
+" -------------------------------------------------
 set pumheight=3
 
 " Nice chars when set list is on
@@ -136,7 +135,7 @@ nnoremap <silent> <Leader>pml :call PyAppendModeline()<CR>
 " # vim: set ts=8 sw=4 sts=4 ai et tw=79:
 " # vim: tabstop=8:softtabstop=4:shiftwidth=4:expandtab:textwidth=79:autoindent
 
-" N.B. Inserted five blank row otherwise vim will look for the modeline
+" N.B. Inserted five blank row otherwise vim will look for the above modeline
 
 
 

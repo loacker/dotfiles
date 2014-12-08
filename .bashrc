@@ -11,14 +11,11 @@
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
-if [[ $- != *i* ]] ; then
-    # Shell is non-interactive.  Be done now!
-    return
-fi
+[[ $- != *i* ]] && return
 
 # User specific PATH variables
 [[ -d ~/.gem ]] && LOCAL_RUBYPATH=$(ls -d ~/.gem/ruby/*/bin)
-export PATH=$PATH:~/bin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}
+export PATH=$PATH:~/bin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}:~/.packer
 
 # LIBVIRT Default URI
 export LIBVIRT_DEFAULT_URI=qemu:///system
@@ -43,8 +40,7 @@ HISTSIZE=10000
 shopt -s histappend
 
 # Force prompt to write history after every command.
-# http://superuser.com/questions/20900/bash-history-loss
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Disable xon/xoff (^]+s) for use the forward-seach-history (emacs shell mode)
 # feature or change the key bindings to use ^]+t
@@ -111,8 +107,9 @@ _git_ps1 () {
 # Alias definition
 alias virls='virsh list --all'
 alias down='sudo shutdown -h now'
-alias ncmpcpp='[ ! -s ~/.mpd/pid ] && mpd && ncmpcpp || ncmpcpp'
-alias vimpc='[ ! -s ~/.mpd/pid ] && mpd && vimpc || vimpc'
+alias reboot='sudo shutdown -r now'
+alias ncmpcpp='[ -z $(cat ~/.mpd/pid 2> /dev/null) ] && mpd && ncmpcpp || ncmpcpp'
+alias vimpc='[ -z $(`cat ~/.mpd/pid`) ] && mpd && vimpc || vimpc'
 
 # Virtualenvwrapper config
 [[ -f `which virtualenvwrapper.sh` ]] > /dev/null 2>&1

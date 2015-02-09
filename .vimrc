@@ -77,7 +77,18 @@ hi tab ctermfg=yellow ctermbg=red
 " ------------------------------------------------------
 set showcmd
 
-" My command shortcuts
+" Folding
+" -------
+set foldmethod=indent
+set foldlevel=99
+
+" pyflakes
+" --------
+let g:pyflakes_use_quickfix = 0
+
+" pep8
+" ----
+let g:pep8_map='<leader>8'
 
 " Map for save a file with sudo privilege (sudo rules must exist)
 " ---------------------------------------------------------------

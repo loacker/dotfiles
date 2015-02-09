@@ -7,6 +7,8 @@
 
 # Source global definitions
 [[ -f /etc/bashrc ]] && . /etc/bashrc
+# Source alias definitions
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
@@ -15,10 +17,13 @@
 
 # User specific PATH variables
 [[ -d ~/.gem ]] && LOCAL_RUBYPATH=$(ls -d ~/.gem/ruby/*/bin)
-export PATH=$PATH:~/bin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}:~/.packer
+export PATH=$PATH:/sbin:~/bin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}:~/.packer
 
 # LIBVIRT Default URI
 export LIBVIRT_DEFAULT_URI=qemu:///system
+
+# Vagrant default provider
+export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -26,12 +31,15 @@ shopt -s checkwinsize
 
 # don't put duplicate lines in the history - ignoredups and ignorespace
 # and erase duplicates
-HISTCONTROL="ignoreboth:erasedups"
+HISTCONTROL=ignoreboth:erasedups
+
+# don't put this command in history
+HISTIGNORE=ls:"ls -altr":"ls -alt":"ls -al":pwd:exit:clear:history
 
 # set the number of commands to remember in the history (default 500) 
 # for other see the man page bash(1)
-HISTSIZE=10000
-#HISTFILESIZE=20000
+HISTSIZE=500000
+HISTFILESIZE=5000000
 #HISTFILE=~/.history
 #HISTTIMEFORMAT="[%F %T] "
 #HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S
@@ -40,7 +48,21 @@ HISTSIZE=10000
 shopt -s histappend
 
 # Force prompt to write history after every command.
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+#PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# Better solution to above from http://bit.ly/1Ga1bPx
+history(){
+	sync_history
+	builtin history "$@"
+}
+
+sync_history(){
+	builtin history -a
+        HISTFILESIZE=$HISTFILESIZE
+        builtin history -c
+        builtin history -r
+}
+
+PROMPT_COMMAND="sync_history; $PROMPT_COMMAND"
 
 # Disable xon/xoff (^]+s) for use the forward-seach-history (emacs shell mode)
 # feature or change the key bindings to use ^]+t
@@ -103,13 +125,6 @@ _git_ps1 () {
 }
 
 [[ "$-" != "*i*" ]] && PS1='$(_git_ps1)'$PS1
-
-# Alias definition
-alias virls='virsh list --all'
-alias down='sudo shutdown -h now'
-alias reboot='sudo shutdown -r now'
-alias ncmpcpp='[ -z $(cat ~/.mpd/pid 2> /dev/null) ] && mpd && ncmpcpp || ncmpcpp'
-alias vimpc='[ -z $(`cat ~/.mpd/pid`) ] && mpd && vimpc || vimpc'
 
 # Virtualenvwrapper config
 [[ -f `which virtualenvwrapper.sh` ]] > /dev/null 2>&1

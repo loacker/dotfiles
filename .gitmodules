@@ -16,3 +16,9 @@
 [submodule "flake8-vim"]
 	path = .vim/bundle/flake8-vim
 	url = https://github.com/vim-scripts/Flake8-vim.git
+[submodule "pep8"]
+	path = .vim/bundle/pep8
+	url = https://github.com/vim-scripts/pep8.git
+[submodule "riv.vim"]
+	path = .vim/bundle/riv.vim
+	url = https://github.com/Rykka/riv.vim.git

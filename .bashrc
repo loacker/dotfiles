@@ -9,6 +9,8 @@
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 # Source alias definitions
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+# Source some bash functions
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
@@ -135,4 +137,5 @@ if [[ $? == 0 ]];then
     export WORKON_HOME=~/.virtualenvs
     export PROJECT_HOME=~/projects
 fi
+
 

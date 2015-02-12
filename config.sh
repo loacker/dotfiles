@@ -13,10 +13,20 @@ ee="\002"
 function usage() {
     printf "${es}${BW}${ee}Usage: %s [-i] [-d <dotfiles directory absolute path>] args
 \n\t${es}${BY}${ee}The script create a symbolic link for all the dotfiles present in the
-\tdefault directory path ${es}${BR}${ee}"~/dotfiles"${RST}, ${es}${BY}${ee}unless the "-d" args is used for
+\tdefault directory path ${es}${BR}${ee}"~/.dotfiles"${RST}, ${es}${BY}${ee}unless the "-d" args is used for
 \tspecifing another path.
 \tInteractively choice which file to link using "-i" args.${RST}\n\n" $0
 }
+
+while getopts ":d:iph" optname; do
+    case "${optname}" in
+        "d") DOTFILES_DIR=${OPTARG} ;; 
+        "i") INTERACTIVE=true ;; 
+        "p") PULL=true ;; 
+        "?"|"h"|":") usage
+            exit 2;;
+    esac
+done
 
 DOTFILES_DIR=${DOTFILES_DIR=~/.dotfiles}
 DOTFILES="$(find ${DOTFILES_DIR} -mindepth 1 -maxdepth 1 \
@@ -30,16 +40,6 @@ DOTFILES="$(find ${DOTFILES_DIR} -mindepth 1 -maxdepth 1 \
     -a ! -iname ".gitmodules" \) \
     2> /dev/null)"
 PLUGINS_DIR=${DOTFILES_DIR}/plugins
-
-while getopts ":d:iph" optname; do
-    case "${optname}" in
-        "d") DOTFILES_DIR=${OPTARG} ;; 
-        "i") INTERACTIVE=true ;; 
-        "p") PULL=true ;; 
-        "?"|"h"|":") usage
-            exit 2;;
-    esac
-done
 
 if [ ! "${DOTFILES_DIR}" ]; then
     echo "Directory ${DOTFILES_DIR} doesn't exist!"

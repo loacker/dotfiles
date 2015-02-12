@@ -1,4 +1,4 @@
 .netrwhist
 *.swp
 bck/
-
+.gitconfig.ignored

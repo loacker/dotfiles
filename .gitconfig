@@ -22,3 +22,5 @@
 	helper = cache
 [push]
 	default = current
+[include]
+	path = ~/.gitconfig.ignored

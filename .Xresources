@@ -149,7 +149,7 @@ XTerm*FaceSize:   15
 XTerm*renderFont: true
 
 XTerm*background: black
-XTerm*foreground: green
+XTerm*foreground: white
 
 !XTerm*highlightColor:          red
 !XTerm*highlightColor:          blue

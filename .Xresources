@@ -102,10 +102,10 @@ URxvt*urgentOnBell:       true
 !URxvt*externalBorder:     0
 
 ! Font config
-URxvt*font:           xft:andale mono:antialias=true:size=14
-URxvt*boldFont:       xft:andale mono:antialias=true:bold:size=14
-URxvt*italicFont:     xft:andale mono:antialias=true:italic:size=14
-URxvt*boldItalicFont: xft:andale mono:antialias=true:bold:italic:size=14
+URxvt*font:           xft:andale mono:antialias=true:size=13
+URxvt*boldFont:       xft:andale mono:antialias=true:bold:size=13
+URxvt*italicFont:     xft:andale mono:antialias=true:italic:size=13
+URxvt*boldItalicFont: xft:andale mono:antialias=true:bold:italic:size=13
 
 ! Set the style of the scrollbar: rxvt (default), plain, next, xterm
 URxvt*scrollstyle: rxvt

@@ -34,9 +34,11 @@ defutf8 on
 # Turn off flow control
 #defflow off
 
-# Set default terminal
-term xterm-256color
-termcapinfo xterm ti@:te@
+# Config the terminal
+#term xterm
+#termcapinfo xterm ti@:te@
+term rxvt-unicode-256color
+termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
 
 # Start login shell (Read .bash_profile)
 #shell $SHELL
@@ -57,17 +59,17 @@ bind -c selectHighs 1 select 10
 
 # Default tab title
 shelltitle "$ |bash"
-# Create some default windows on start
-# -t for the label
-# following by the number assigned to a windows
-# and by the commands to exec (default to shell)
+
+# Create some default windows on start -t for the label following by
+# the number assigned to a windows and by the commands to exec
 screen -t lcl-root 0 su -
 screen -t lcl1 1
 screen -t lcl2 2
+screen -t other 3
 #screen -t syslog 9 tail -f /var/log/messages
-# Select the the number 1 window
+## Select the the number 1 window
 #select 1
-# Split the 1th and 2th windows
+## Split the 1th and 2th windows
 #split
 #select 1
 #focus
@@ -75,11 +77,10 @@ screen -t lcl2 2
 #resize -14
 #focus
 
-# Window list at the bottom of the screen
-# caption show the info on all tab region
-# hardstatus string show the info on an xterm title
-# hardstatus alwayslastline  show the info at the bottom of the screen 
-
+# Window list at the bottom of the screen caption show the info on all tab
+# region hardstatus string show the info on an xterm title hardstatus 
+# alwayslastline  show the info at the bottom of the screen 
+backtick 1 5 5 true
 caption splitonly "%{=b bW}%50> %{=b bW}Tab: %n Name: %{=b bW}%t %{-} %<"
 hardstatus alwayslastline "%{=b rW} %{=b rW}%-w%{=b kr}[%n %t]%{-}%+w %< %>%=%{=b rW}[%u]%<"
 

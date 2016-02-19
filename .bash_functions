@@ -3,7 +3,7 @@ mkd() { /bin/mkdir -p $@; cd $@; }
 
 # Manage  github repository
 # Create a token with repo and delete permissions
-# Set an include in the .gitconfig file and save the githun credential in the
+# Set an include in the .gitconfig file and save the github credential in the
 # .gitconfig.ignored file (set the exclusion in the .gitignore)
 # git config --global include.path ~/.dotfiles/.gitconfig.ignored
 # git config --file ~/.dotfiles/.gitconfig.ignored github.user <username>

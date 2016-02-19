@@ -36,7 +36,8 @@ shopt -s checkwinsize
 HISTCONTROL=ignoreboth:erasedups
 
 # don't put this command in history
-HISTIGNORE=ls:"ls -altr":"ls -alt":"ls -al":pwd:exit:clear:history
+#HISTIGNORE=ls:"ls -altr":"ls -alt":"ls -al":pwd:exit:clear:history
+HISTIGNORE="ls:""ls -alt":"ls -al":pwd:exit:clear:history
 
 # set the number of commands to remember in the history (default 500) 
 # for other see the man page bash(1)
@@ -103,7 +104,8 @@ C_BOLD_WHITE='\033[1;37m'
 # If you don't escape the prompt break the newline like inserting a carriage return 
 
 if [[ -n ${XTERM_VERSION} ]]; then
-    PS1="\[${C_GREEN}\]\u\[${C_WHITE}\]@\[${C_RED}\]\h\[${C_WHITE}\]:\[${C_CYAN}\]\W\[${C_YELLOW}\] \\$\[${C_RESET}\] "
+    #PS1="\[${C_GREEN}\]\u\[${C_WHITE}\]@\[${C_RED}\]\h\[${C_WHITE}\]:\[${C_CYAN}\]\W\[${C_YELLOW}\] \\$\[${C_RESET}\] "
+    PS1="\[\e]0;\[${C_GREEN}\]\u\[${C_WHITE}\]@\[${C_RED}\]\h\[${C_WHITE}\]:\[${C_CYAN}\]\W\[${C_YELLOW}\] \\$\[${C_RESET}\] "
 else
     PS1="\[${C_BOLD_GREEN}\]\u\[${C_BOLD_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_BOLD_WHITE}\]:\[${C_BOLD_CYAN}\]\W\[${C_BOLD_YELLOW}\] \\$\[${C_RESET}\] "
 fi

@@ -9,13 +9,21 @@ alias ncmpcpp='[ -z $(cat ~/.mpd/pid 2> /dev/null) ] && mpd && ncmpcpp || ncmpcp
 alias vimpc='[ -z $(`cat ~/.mpd/pid`) ] && mpd && vimpc || vimpc'
 
 # Libvirt
-alias virls='virsh list --all'
+alias vls='virsh list --all'
+alias vstart='virsh start $1'
+alias virtstart='sudo rc-service libvirt-guests start'
+alias vstop='virsh destroy $1'
+alias virtstop='sudo rc-service libvirt-guests stop'
+alias vsave='virsh managedsave $1'
 
 # Vagrant 
-alias vhalt='vagrant halt'
-# Credits james http://bit.ly/1IvzbMS
-alias vp='vagrant provision'
-alias vup='vagrant up'
-alias vssh='vagrant ssh'
-alias vdestroy='vagrant destroy'
+alias vghalt='vagrant halt'
+alias vgup='vagrant up'
+alias vgssh='vagrant ssh'
+alias vgdestroy='vagrant destroy'
 
+# wget
+alias wd='wget -r --no-parent --reject "index.html*" $1'
+
+# Term for SSH
+alias ssh='TERM=xterm-color ssh'

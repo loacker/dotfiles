@@ -21,6 +21,8 @@ alias vghalt='vagrant halt'
 alias vgup='vagrant up'
 alias vgssh='vagrant ssh'
 alias vgdestroy='vagrant destroy'
+alias vgsusp='vagrant suspend'
+alias vgrel='vagrant reload'
 
 # wget
 alias wd='wget -r --no-parent --reject "index.html*" $1'

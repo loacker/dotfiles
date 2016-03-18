@@ -36,9 +36,11 @@ defutf8 on
 
 # Config the terminal
 #term xterm
+xterm-256color
 #termcapinfo xterm ti@:te@
-term rxvt-unicode-256color
-termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
+#term rxvt-unicode-256color
+#termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
 
 # Start login shell (Read .bash_profile)
 #shell $SHELL

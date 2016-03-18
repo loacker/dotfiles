@@ -19,7 +19,7 @@
 
 # User specific PATH variables
 [[ -d ~/.gem ]] && LOCAL_RUBYPATH=$(ls -d ~/.gem/ruby/*/bin)
-export PATH=$PATH:/sbin:~/bin:/usr/sbin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}:~/.packer
+export PATH=$PATH:/sbin:~/bin:/usr/sbin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}
 
 # LIBVIRT Default URI
 export LIBVIRT_DEFAULT_URI=qemu:///system

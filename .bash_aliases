@@ -5,8 +5,8 @@ alias down='sudo shutdown -h now'
 alias reboot='sudo shutdown -r now'
 
 # Music manager
-alias ncmpcpp='[ -z $(cat ~/.mpd/pid 2> /dev/null) ] && mpd && ncmpcpp || ncmpcpp'
-alias vimpc='[ -z $(`cat ~/.mpd/pid`) ] && mpd && vimpc || vimpc'
+alias ncmpcpp='[ -z $(pgrep mpd) ] && mpd && ncmpcpp || ncmpcpp'
+alias vimpc='[ -z $(pgrep mpd) ] && mpd && vimpc || vimpc'
 
 # Libvirt
 alias vls='virsh list --all'

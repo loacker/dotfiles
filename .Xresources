@@ -138,6 +138,9 @@ URxvt*colorUL: base08
 ! Config for solarized color scheme
 URxvt*intensityStyles: false
 
+! Set the 
+URxvt.modifier: alt
+
 ! ----------------------------------------------
 
 ! -------------

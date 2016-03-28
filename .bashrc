@@ -144,4 +144,5 @@ if [[ $? == 0 ]];then
     export PROJECT_HOME=~/projects
 fi
 
-
+# Less colored output
+export LESSOPEN='|pygmentize -g %s'

@@ -18,3 +18,5 @@ if [ -n "$SSH_CONNECTION" ] && [ -z "$SCREEN_EXIST" ]; then
     screen -DRi work
 fi
 
+
+# vim: set ts=8 sw=4 sts=4 tw=79 ff=unix ft=sh et ai :

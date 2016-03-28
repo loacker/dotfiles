@@ -118,9 +118,7 @@ ee="\002"
 C_UL_RED='\033[4;31m'
 
 _git_ps1 () {
-    # Check if CWD is a git repository
-    git branch > /dev/null 2>&1
-    if [ "$?" -eq "0" ]; then
+    if [[ $(ls -d .git 2> /dev/null) == ".git" ]]; then
         git status 2> /dev/null | grep -Ei 'nothing to commit' > /dev/null 2>&1
         if [ "$?" -eq "0" ]; then
             printf "%b" "${es}${C_BOLD_YELLOW}${ee}(`git branch 2> /dev/null \
@@ -129,6 +127,8 @@ _git_ps1 () {
             printf "%b" "${es}${C_UL_RED}${ee}(`git branch 2> /dev/null \
                     | sed -e '/^\s\+/d' -e 's/^*\s//g'`)${es}${C_WHITE}${ee}:${es}${C_RESET}${ee}"
         fi
+    else
+        exit 0
     fi
 }
 
@@ -146,3 +146,6 @@ fi
 
 # Less colored output
 export LESSOPEN='|pygmentize -g %s'
+
+
+# vim: set ts=8 sw=4 sts=4 tw=79 ff=unix ft=sh et ai :

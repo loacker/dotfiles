@@ -11,9 +11,9 @@ alias vimpc='[ -z $(pgrep mpd) ] && mpd && vimpc || vimpc'
 # Libvirt
 alias vls='virsh list --all'
 alias vstart='virsh start $1'
-alias virtstart='sudo rc-service libvirt-guests start'
+alias virtstart='sudo rc-service libvirtd start && sudo rc-service libvirt-guests start'
 alias vstop='virsh destroy $1'
-alias virtstop='sudo rc-service libvirt-guests stop'
+alias virtstop='sudo rc-service libvirt-guests stop && sudo rc-service libvirtd stop'
 alias vsave='virsh managedsave $1'
 
 # Vagrant 

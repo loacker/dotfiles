@@ -72,6 +72,10 @@ set listchars=tab:▸\_,
 syntax match tab /\t/
 hi tab ctermfg=yellow ctermbg=red
 
+" Visual selection color
+" ----------------------
+hi Visual term=reverse
+
 " Show command in the last line of the screen
 " es. The leader key when pressed until the timeout left
 " ------------------------------------------------------

@@ -89,8 +89,8 @@ Xft.rgba:      rgb
 
 ! General
 !URxvt*termName:           xterm
-URxvt*termName:           xterm-256color
-!URxvt*termName:           rxvt-unicode-256color
+!URxvt*termName:           xterm-256color
+URxvt*termName:           rxvt-unicode-256color
 URxvt*loginShell:         true
 URxvt*scrollBar:          false
 URxvt*secondaryScroll:    true

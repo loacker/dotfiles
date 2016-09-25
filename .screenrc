@@ -56,8 +56,16 @@ bind -c selectHighs 1 select 10
 #bind c screen 1
 #bind 0 select 10
 
-# Bind +a "space" for windows list
+# Bind +a "space" for move to the next tab
 #bind ' ' windowlist -b 
+
+# Access tabs number from 10 above with "^[+b + n
+#bind -c controlb 0 select 10
+#bind -c controlb 1 select 11
+#bind -c controlb 2 select 12
+#bind -c controlb 2 select 13
+#bind -c controlb 2 select 14
+#bindkey "^b" command -c controlb
 
 # Default tab title
 shelltitle "$ |bash"

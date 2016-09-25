@@ -13,6 +13,10 @@ execute pathogen#infect()
 filetype plugin indent on
 "set autoindent
 
+" Enable filetype plugins
+" -----------------------
+filetype plugin on
+
 " Set modeline on and set the size where looking for the
 " parameters from top or bottom es: /* vim: ft=cpp:...*/
 " ------------------------------------------------------
@@ -74,7 +78,8 @@ hi tab ctermfg=yellow ctermbg=red
 
 " Visual selection color
 " ----------------------
-hi Visual term=reverse
+"hi Visual term=reverse
+hi Visual ctermbg=white ctermfg=black
 
 " Show command in the last line of the screen
 " es. The leader key when pressed until the timeout left

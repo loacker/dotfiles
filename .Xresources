@@ -37,9 +37,9 @@
 #define base0E #a16a94
 #define base0F #cdab53
 
-*.foreground:  base05
-!*.background:  base00 
 *.background:  #002020
+*.foreground:  base05
+
 *.cursorColor: base05
 *.color0:      base00
 *.color1:      base08
@@ -101,6 +101,9 @@ URxvt*urgentOnBell:       true
 !URxvt*borderLess:         false
 !URxvt*internalBorder:     0
 !URxvt*externalBorder:     0
+
+! Reverse bg and fg colors 
+URxvt.reverseVideo: false
 
 ! Font config
 URxvt*font:           xft:andale mono:antialias=true:size=13

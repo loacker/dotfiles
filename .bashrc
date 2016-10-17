@@ -106,7 +106,9 @@ C_BOLD_WHITE='\033[1;37m'
 if [[ -n ${XTERM_VERSION} ]]; then
     #PS1="\[${C_GREEN}\]\u\[${C_WHITE}\]@\[${C_RED}\]\h\[${C_WHITE}\]:\[${C_CYAN}\]\W\[${C_YELLOW}\] \\$\[${C_RESET}\] "
     PS1="\[\e]0;\[${C_GREEN}\]\u\[${C_WHITE}\]@\[${C_RED}\]\h\[${C_WHITE}\]:\[${C_CYAN}\]\W\[${C_YELLOW}\] \\$\[${C_RESET}\] "
-else
+elif [[ $TERM == xterm ]]; then
+    PS1="\u@\h:\W \\$ "
+elif [[ ($TERM == rxvt-unicode-256color) || ($TERM == screen-256color) ]]; then
     PS1="\[${C_BOLD_GREEN}\]\u\[${C_BOLD_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_BOLD_WHITE}\]:\[${C_BOLD_CYAN}\]\W\[${C_BOLD_YELLOW}\] \\$\[${C_RESET}\] "
 fi
 

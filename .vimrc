@@ -26,7 +26,7 @@ set modelines=5
 " Enable the paste feature (No autoindent)
 " <F12> For enable and disable the paste 
 " ----------------------------------------
-"set paste
+set paste
 "set pastetoggle=<F12> 
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>

@@ -40,6 +40,7 @@ defutf8 on
 #termcapinfo xterm ti@:te@
 #termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
 term rxvt-unicode-256color
+term screen-256color
 #termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
 
 # Start login shell (Read .bash_profile)

@@ -73,7 +73,7 @@ shelltitle "$ |bash"
 
 # Create some default windows on start -t for the label following by
 # the number assigned to a windows and by the commands to exec
-screen -t lcl-root 0 su -
+screen -t lcl-root 0 sudo -i
 screen -t lcl1 1
 screen -t lcl2 2
 screen -t other 3

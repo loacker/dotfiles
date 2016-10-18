@@ -10,7 +10,7 @@
 ! | Color3  (yellow)  | color11 (bright yellow)  |
 ! | Color4  (blue)    | color12 (bright blue)    |
 ! | Color5  (magenta) | color13 (bright magenta) |
-! | Color6  (cyan)    | color14 (bright cyan)    |
+! | Color6  (cyan)    | color13 (bright cyan)    |
 ! | Color7  (white)   | color15 (bright white)   |
 ! +-------------------+--------------------------+
 
@@ -57,7 +57,7 @@
 !*.color11:     base02
 !*.color12:     base04
 !*.color13:     base06
-!*.color14:     base0F
+!*.color13:     base0F
 !*.color15:     base07
 
 ! ----------------------------------------------
@@ -77,6 +77,9 @@
 
 Xft.antialias: 1
 Xft.autohint:  0
+! dpi for t461s
+!Xft.dpi:       105
+! dpi for x230
 Xft.dpi:       96
 Xft.hinting:   1
 Xft.hintstyle: hintfull
@@ -152,14 +155,14 @@ URxvt.modifier: alt
 ! XTerm Options
 ! -------------
 
-!XTerm*termName:   xterm-256color
-XTerm*termName:   rxvt-unicode-256color
+XTerm*termName:   xterm-256color
 XTerm*FaceName:   andale mono
-XTerm*FaceSize:   15
+XTerm*FaceSize:   13
 XTerm*renderFont: true
+XTerm*ScrollBar: false
 
-XTerm*background: black
-XTerm*foreground: white
+XTerm*background: white
+XTerm*foreground: black
 
 !XTerm*highlightColor:          red
 !XTerm*highlightColor:          blue
@@ -175,10 +178,10 @@ XTerm*foreground: white
 
 XTerm*saveLines: 10000
 
-XTerm*font:           xft:inconsolata:antialias=true:size=14
-XTerm*boldFont:       xft:inconsolata:antialias=true:bold:size=14
-XTerm*italicFont:     xft:inconsolata:antialias=true:italic:size=14
-XTerm*boldItalicFont: xft:inconsolata:antialias=true:bold:italic:size=14
+XTerm*font:           xft:inconsolata:antialias=true:size=13
+XTerm*boldFont:       xft:inconsolata:antialias=true:bold:size=13
+XTerm*italicFont:     xft:inconsolata:antialias=true:italic:size=13
+XTerm*boldItalicFont: xft:inconsolata:antialias=true:bold:italic:size=13
 
 ! ----------------------------------------------
 

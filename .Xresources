@@ -78,9 +78,9 @@
 Xft.antialias: 1
 Xft.autohint:  0
 ! dpi for t461s
-Xft.dpi:       105
+!Xft.dpi:       105
 ! dpi for x230
-!Xft.dpi:       96
+Xft.dpi:       96
 Xft.hinting:   1
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault

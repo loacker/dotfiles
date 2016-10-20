@@ -117,7 +117,7 @@ ee="\002"
 C_UL_RED='\033[4;31m'
 
 _git_ps1 () {
-    if [[ $(ls -d .git 2> /dev/null) == ".git" ]]; then
+    if [[ $(ls -d .git --color=none 2> /dev/null) == ".git" ]]; then
         git status 2> /dev/null | grep -Ei 'nothing to commit' > /dev/null 2>&1
         if [ "$?" -eq "0" ]; then
             printf "%b" "${es}${C_BOLD_YELLOW}${ee}(`git branch 2> /dev/null \

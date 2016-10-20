@@ -29,3 +29,8 @@ alias wd='wget -r --no-parent --reject "index.html*" $1'
 
 # Term for SSH
 alias ssh='TERM=xterm-color ssh'
+
+# Colored output for less
+alias ls='ls --color=always' 
+alias grep='grep --color=always' 
+

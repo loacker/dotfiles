@@ -15,7 +15,11 @@ fi
 # Start or reconnect to a screen session
 if [ -n "$SSH_CONNECTION" ] && [ -z "$SCREEN_EXIST" ]; then
     export SCREEN_EXIST=1
-    screen -ri remote
+    if [[ $(screen -ls | awk '/remote/ {print $2}') != "(Attached)" ]]; then
+        screen -RD remote
+    else
+        screen -r remote
+    fi 
 fi
 
 

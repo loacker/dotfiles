@@ -36,3 +36,7 @@ alias grep='grep --color=always'
 
 # Webcam test
 alias wcam='vlc v4l:// :v4l-vdev="/dev/video0" :v4l-adev="/dev/audio2"'
+
+# nmcli
+alias ncs="nmcli connection show"
+alias ndwl="nmcli device wifi list"

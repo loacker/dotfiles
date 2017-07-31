@@ -27,9 +27,14 @@ set modelines=5
 " <F12> For enable and disable the paste 
 " ----------------------------------------
 set paste
-"set pastetoggle=<F12> 
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
+
+" Show/Hide number feature
+" <F11> For show/hide the number column
+" ----------------------------------------
+nnoremap <F11> :set invnumber number?<CR>
+set pastetoggle=<F11>
 
 " Set syntax highligth on
 " -----------------------
@@ -98,6 +103,10 @@ let g:pyflakes_use_quickfix = 0
 " pep8
 " ----
 let g:pep8_map='<leader>8'
+
+" Persistent undo/redo
+set undofile
+set undodir=~/.vim/undodir
 
 " Map for save a file with sudo privilege (sudo rules must exist)
 " ---------------------------------------------------------------

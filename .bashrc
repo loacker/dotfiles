@@ -18,7 +18,7 @@
 [[ $- != *i* ]] && return
 
 # User specific PATH variables
-[[ -d ~/.gem ]] && LOCAL_RUBYPATH=$(ls -d ~/.gem/ruby/*/bin)
+[[ -d ~/.gem ]] && LOCAL_RUBYPATH=$(ls -d --color=none ~/.gem/ruby/*/bin)
 export PATH=$PATH:/sbin:~/bin:/usr/sbin:~/.local/bin:${LOCAL_RUBYPATH//[[:space:]]/:}
 
 # LIBVIRT Default URI
@@ -103,7 +103,7 @@ C_BOLD_WHITE='\033[1;37m'
 # with the equivalent octal code \001 and \002, the octal code \033 can be substituted by '\e'.
 # If you don't escape the prompt break the newline like inserting a carriage return 
 
-if [[ -n ${XTERM_VERSION} || ${TERM} == xterm-256color ]]; then
+if [[ ${TERM} == xterm-256color || ${TERM} == xterm ]]; then
     PS1="\[${C_RED}\]\u\[${C_BLACK}\]@\[${C_RED}\]\h\[${C_BLACK}\]:\[${C_RED}\]\W\[${C_BLACK}\] \\$\[${C_RESET}\] "
 elif [[ (${TERM} == rxvt-unicode-256color) || ($TERM == screen-256color) ]]; then
     PS1="\[${C_BOLD_GREEN}\]\u\[${C_BOLD_WHITE}\]@\[${C_BOLD_RED}\]\h\[${C_BOLD_WHITE}\]:\[${C_BOLD_CYAN}\]\W\[${C_BOLD_YELLOW}\] \\$\[${C_RESET}\] "

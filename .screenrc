@@ -77,10 +77,11 @@ screen -t lcl-root 0 sudo -i
 screen -t lcl1 1
 screen -t lcl2 2
 screen -t other 3
+screen -t sshuttle 4
 #screen -t syslog 9 tail -f /var/log/messages
-## Select the the number 1 window
-#select 1
-## Split the 1th and 2th windows
+# Select the window number 0
+select 0
+# Split the 1th and 2th windows
 #split
 #select 1
 #focus

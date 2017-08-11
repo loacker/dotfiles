@@ -2,3 +2,4 @@
 *.swp
 bck/
 .gitconfig.ignored
+.vim/undodir/
